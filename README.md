@@ -6,27 +6,56 @@ plain HTML + CSS + JavaScript, GSAP + ScrollTrigger + Lenis for motion.
 
 ## A note on the imagery
 
-Every visual on the site — the campaign compositions, the product images,
-the lookbook, the material tiles — is an **original, procedurally generated
-SVG**, not a photograph. This was a constraint, not a stylistic whim: the
-build environment this project was created in has no network access to any
-photo host (Unsplash, Pexels, Wikimedia, etc.), so no real photography could
-be sourced or verified.
+The build environment this project was created in has no network access to
+any photo host (Unsplash, Pexels, Wikimedia, Google Images, etc.), so
+photography couldn't be fetched automatically. The site now runs on a
+**hybrid** set of visuals:
 
-Rather than ship broken `<img>` tags or generic AI-looking filler, the site
-leans into an **architectural line-art identity** — garment schematics,
-croquis silhouettes, and generated grain/fabric textures — that reinforces
-the manifesto ("Clothing as architecture") instead of fighting it. All of
-it lives in `assets/images/*.svg` and is produced by
-[`scripts/generate-assets.mjs`](scripts/generate-assets.mjs), a small,
-seeded, deterministic generator (no external dependencies).
+- **`assets/images/photos/`** — nine real photographs supplied directly by
+  the project owner, used for the hero, campaign, film, studio, lookbook,
+  journal, and four of the six products (coat, jacket, dress, blazer).
+- **`assets/images/*.svg`** — original, procedurally generated line art
+  (architectural garment schematics + macro fabric textures) for the pieces
+  with no matching photo (trousers, skirt) and the manifesto diagram. This
+  is produced by [`scripts/generate-assets.mjs`](scripts/generate-assets.mjs),
+  a small, seeded, deterministic generator with no external dependencies —
+  the composition/lookbook/journal functions are still in the file and
+  fully working if you ever want to fall back to an illustration-only look
+  (see the commented-out block at the bottom of the script).
 
-**To swap in real campaign photography later:** replace any file in
-`assets/images/` with a same-named `.jpg`/`.webp` and update the
-`src` in `index.html` (or the `image` field in `js/products.js` for
-products). Nothing else needs to change — the layout, crops
-(`object-fit: cover`) and aspect ratios were all authored to take a real
-photograph directly.
+**Licensing responsibility:** the photos in `assets/images/photos/` were
+supplied by whoever is running this project, not sourced or verified by the
+build process. Before deploying this site publicly or using it commercially,
+confirm you hold the rights to each photo (a purchased/licensed stock image,
+a properly licensed shoot, or your own photography). Swap any file you're
+unsure of for one you do hold rights to — same filename, same path, nothing
+else needs to change.
+
+**To swap any image:** replace the file (keep the same name) and, if it's a
+product, update the `image` field in `js/products.js`; everything else
+(the `src` in `index.html`, the crops via `object-fit: cover`, the aspect
+ratios) was authored to take a real photograph directly.
+
+## Color theme — Champagne & Emerald
+
+The site moved off an all-black palette to a warm champagne/ivory base
+(`--c-champagne`) with deep-emerald text, gold accents (`--c-gold`,
+`--c-gold-bright`), and a handful of cinematic deep-emerald sections —
+hero, campaign, film, lookbook, final campaign, footer, and every overlay
+(cart, product, film) — that stay dark for contrast and drama against the
+otherwise light, editorial body copy. All tokens live in `css/variables.css`;
+each dark section re-declares the shared `--local-*` custom properties
+(`--local-bg`, `--local-fg`, `--local-secondary`, `--local-muted`,
+`--local-border`, `--local-accent`) so a section's descendants (headings,
+labels, borders, hovers) automatically pick up the right color without
+per-element overrides. The nav is the one exception: transparent with light
+text over the hero, then a solid champagne bar with dark text once
+scrolled, so it stays legible over whichever section is underneath.
+
+A slow-drifting, GPU-cheap `.ambient-bg` layer (three blurred gold/emerald/
+champagne radial blobs, pure CSS `transform` animation, paused under
+`prefers-reduced-motion`) sits fixed behind the light sections; dark
+sections simply paint over it with their own opaque background.
 
 ## Quick start
 
@@ -67,9 +96,12 @@ node scripts/generate-assets.mjs
   animations.js               Lenis + GSAP/ScrollTrigger orchestration
   main.js                     Bootstraps everything, newsletter, anchors
   vendor/                     GSAP, ScrollTrigger, Lenis (vendored, no CDN)
-/assets/images                Generated SVG art direction (see above)
+/assets/images
+  photos/                      Real photography (see "A note on the imagery")
+  *.svg                        Generated line-art for the rest (see above)
 /scripts
   generate-assets.mjs          Procedural SVG asset generator
+  optimize-photos.mjs          Re-encodes source photos into photos/ (needs `sharp`)
   qa-screenshot.mjs            Playwright QA harness used during build
 ```
 

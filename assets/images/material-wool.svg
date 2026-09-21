@@ -2,7 +2,7 @@
   <defs>
     <filter id="tex-mat0" x="-10%" y="-10%" width="120%" height="120%">
       <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="3" seed="300" stitchTiles="stitch" result="n"/>
-      <feColorMatrix in="n" type="matrix" values="0 0 0 0 0.85  0 0 0 0 0.83  0 0 0 0 0.78  0 0 0 0.5 0" result="nc"/>
+      <feColorMatrix in="n" type="matrix" values="0 0 0 0 0.86  0 0 0 0 0.74  0 0 0 0 0.5  0 0 0 0.5 0" result="nc"/>
       <feComposite in="nc" in2="SourceGraphic" operator="in" result="tinted"/>
       <feBlend in="SourceGraphic" in2="tinted" mode="soft-light"/>
     </filter>
@@ -11,7 +11,7 @@
       <stop offset="100%" stop-color="#000000" stop-opacity="0.35"/>
     </radialGradient>
   </defs>
-  <rect width="900" height="900" fill="#2a2925"/>
+  <rect width="900" height="900" fill="#223229"/>
   <rect width="900" height="900" filter="url(#tex-mat0)"/>
   <g></g>
   <rect width="900" height="900" fill="url(#vig-mat0)"/>

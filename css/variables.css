@@ -2,20 +2,53 @@
    NOIRÉ — design tokens
    ========================================================================== */
 :root {
-  /* -- palette -------------------------------------------------------- */
-  --c-black:        #0a0a0a;
-  --c-ink:           #121212;
-  --c-charcoal:      #1c1b1a;
-  --c-graphite:      #3a3936;
-  --c-warm-gray:     #8a857c;
-  --c-stone:         #c9c3b8;
-  --c-off-white:     #efece6;
-  --c-paper:         #f6f4ef;
-  --c-burgundy:      #4a1418;
-  --c-silver:        #b7b2a9;
+  /* -- palette: Champagne & Emerald ------------------------------------
+     Warm, light editorial base (champagne/cream) with a handful of deep
+     emerald "cinematic" bands (hero, film, lookbook, campaign, footer,
+     overlays) for contrast and drama — see the --local-* tokens below. */
+  --c-champagne:      #f3e9d7;
+  --c-champagne-deep: #e9dcbf;
+  --c-cream:          #faf5ea;
+  --c-ink-emerald:    #142922;
+  --c-emerald:        #1f5c46;
+  --c-emerald-deep:   #0e3b2c;
+  --c-emerald-black:  #0c1a15;
+  --c-emerald-charcoal: #1a2b24;
+  --c-gold:           #b6903f;
+  --c-gold-bright:    #d8ac57;
+  --c-taupe:          #8d7d5f;
+  --c-taupe-soft:     #a6987a;
+  --c-stone-on-dark:  #d7c8a6;
+  --c-burgundy:       #6e2a2f;
+  --c-silver:         #b7b2a9;
 
-  --c-bg:            var(--c-black);
-  --c-fg:            var(--c-off-white);
+  /* legacy aliases kept so existing component rules keep working —
+     repointed to the new palette rather than renamed everywhere. */
+  --c-black:          var(--c-emerald-black);
+  --c-ink:             var(--c-emerald-black);
+  --c-charcoal:        var(--c-emerald-charcoal);
+  --c-graphite:        #4d5e54;
+  --c-warm-gray:       var(--c-taupe);
+  --c-stone:           var(--c-taupe-soft);
+  --c-off-white:       var(--c-champagne);
+  --c-paper:           var(--c-cream);
+
+  --c-bg:            var(--c-champagne);
+  --c-fg:            var(--c-ink-emerald);
+
+  /* -- light / dark section tokens -------------------------------------
+     Body sections (manifesto, collection, materials, studio, journal,
+     storefront) use the :root defaults below. Cinematic full-bleed
+     sections (hero, campaign, film, lookbook, final-campaign, footer) and
+     overlays (cart, product, film) opt into the dark set — see
+     components.css / layout.css section rules for the `--local-*`
+     re-declarations at each of those containers. */
+  --local-bg:        var(--c-champagne);
+  --local-fg:        var(--c-ink-emerald);
+  --local-secondary: #3c5148;
+  --local-muted:     var(--c-taupe);
+  --local-border:    rgba(20,41,34,0.14);
+  --local-accent:    var(--c-emerald);
 
   /* -- type ------------------------------------------------------------ */
   --f-display: 'Bodoni Moda', 'Times New Roman', serif;

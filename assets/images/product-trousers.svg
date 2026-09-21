@@ -1,7 +1,7 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 1000" width="800" height="1000">
   <defs><filter id="grain-p2"><feTurbulence type="fractalNoise" baseFrequency="1.3" numOctaves="2" seed="7" stitchTiles="stitch"/><feColorMatrix type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 0.045 0"/></filter></defs>
-  <rect width="800" height="1000" fill="#efece6"/>
-  <g fill="none" stroke="#0c0c0d" stroke-width="1.1" stroke-linejoin="round">
+  <rect width="800" height="1000" fill="#f3e9d7"/>
+  <g fill="none" stroke="#142922" stroke-width="1.1" stroke-linejoin="round">
     <path d="M 296 120 L 504 120
       L 504 500 L 528.96 920
       L 437.44 920 L 400 668
@@ -9,6 +9,6 @@
       L 296 500 Z"/>
     <path d="M 400 210 L 400 920" stroke-width="0.6" opacity="0.55" stroke-dasharray="1 5"/>
   </g>
-  <g opacity="0.7"><line x1="192" y1="960" x2="608" y2="960" stroke="#3a3936" stroke-width="0.75"/><line x1="192" y1="952" x2="192" y2="968" stroke="#3a3936" stroke-width="0.75"/><line x1="608" y1="952" x2="608" y2="968" stroke="#3a3936" stroke-width="0.75"/><line x1="162" y1="120" x2="174" y2="120" stroke="#3a3936" stroke-width="0.5" opacity="0.6"/><line x1="162" y1="320" x2="174" y2="320" stroke="#3a3936" stroke-width="0.5" opacity="0.6"/><line x1="162" y1="520" x2="174" y2="520" stroke="#3a3936" stroke-width="0.5" opacity="0.6"/><line x1="162" y1="720" x2="174" y2="720" stroke="#3a3936" stroke-width="0.5" opacity="0.6"/><line x1="162" y1="920" x2="174" y2="920" stroke="#3a3936" stroke-width="0.5" opacity="0.6"/></g>
+  <g opacity="0.7"><line x1="192" y1="960" x2="608" y2="960" stroke="#8d7d5f" stroke-width="0.75"/><line x1="192" y1="952" x2="192" y2="968" stroke="#8d7d5f" stroke-width="0.75"/><line x1="608" y1="952" x2="608" y2="968" stroke="#8d7d5f" stroke-width="0.75"/><line x1="162" y1="120" x2="174" y2="120" stroke="#8d7d5f" stroke-width="0.5" opacity="0.6"/><line x1="162" y1="320" x2="174" y2="320" stroke="#8d7d5f" stroke-width="0.5" opacity="0.6"/><line x1="162" y1="520" x2="174" y2="520" stroke="#8d7d5f" stroke-width="0.5" opacity="0.6"/><line x1="162" y1="720" x2="174" y2="720" stroke="#8d7d5f" stroke-width="0.5" opacity="0.6"/><line x1="162" y1="920" x2="174" y2="920" stroke="#8d7d5f" stroke-width="0.5" opacity="0.6"/></g>
   <rect width="800" height="1000" filter="url(#grain-p2)"/>
 </svg>

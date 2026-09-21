@@ -4,8 +4,8 @@
 *, *::before, *::after { box-sizing: border-box; }
 
 html {
-  background: var(--c-bg);
-  color-scheme: dark;
+  background: var(--c-champagne);
+  color-scheme: light;
   scroll-behavior: auto;
 }
 
@@ -16,7 +16,7 @@ html.no-js .split-line__inner { opacity: 1 !important; transform: none !importan
 body {
   margin: 0;
   min-width: 1180px;
-  background: var(--c-bg);
+  background: transparent; /* the fixed .ambient-bg layer paints the base color */
   color: var(--c-fg);
   font-family: var(--f-sans);
   font-size: var(--fs-body);
@@ -28,6 +28,49 @@ body {
 }
 
 body.no-custom-cursor { cursor: auto; }
+
+/* -- ambient background wash --------------------------------------------
+   A fixed, slow-drifting soft-focus layer behind the light champagne
+   sections. Dark cinematic sections (hero, campaign, film, lookbook,
+   final-campaign, footer) each carry their own opaque background and
+   simply paint over it, so no per-section handling is needed here. */
+.ambient-bg {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+.ambient-bg__blob {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(90px);
+  will-change: transform;
+}
+.ambient-bg__blob--a {
+  top: -14%; left: -10%;
+  width: 52vw; height: 52vw;
+  background: radial-gradient(circle, var(--c-gold) 0%, transparent 70%);
+  opacity: 0.22;
+  animation: driftA 46s ease-in-out infinite;
+}
+.ambient-bg__blob--b {
+  bottom: -18%; right: -12%;
+  width: 60vw; height: 60vw;
+  background: radial-gradient(circle, var(--c-emerald) 0%, transparent 70%);
+  opacity: 0.16;
+  animation: driftB 58s ease-in-out infinite;
+}
+.ambient-bg__blob--c {
+  top: 28%; left: 38%;
+  width: 42vw; height: 42vw;
+  background: radial-gradient(circle, var(--c-champagne-deep) 0%, transparent 72%);
+  opacity: 0.5;
+  animation: driftC 38s ease-in-out infinite;
+}
+@keyframes driftA { 0%, 100% { transform: translate(0, 0) scale(1); } 50% { transform: translate(6vw, 7vw) scale(1.1); } }
+@keyframes driftB { 0%, 100% { transform: translate(0, 0) scale(1); } 50% { transform: translate(-7vw, -5vw) scale(1.08); } }
+@keyframes driftC { 0%, 100% { transform: translate(0, 0) scale(1); } 50% { transform: translate(-5vw, 5vw) scale(0.92); } }
 
 img, svg { display: block; max-width: 100%; }
 img { height: auto; }
@@ -49,7 +92,7 @@ h1, h2, h3, h4, p, figure { margin: 0; }
 
 /* -- focus states ------------------------------------------------------- */
 :focus-visible {
-  outline: 1px solid var(--c-off-white);
+  outline: 1px solid var(--local-fg, var(--c-ink-emerald));
   outline-offset: 4px;
 }
 button:focus-visible, a:focus-visible { outline-offset: 3px; }
@@ -64,7 +107,7 @@ button:focus-visible, a:focus-visible { outline-offset: 3px; }
   font-size: var(--fs-xs);
   letter-spacing: var(--ls-wide);
   text-transform: uppercase;
-  color: var(--c-warm-gray);
+  color: var(--local-muted, var(--c-warm-gray));
   font-weight: 500;
 }
 
@@ -75,6 +118,7 @@ button:focus-visible, a:focus-visible { outline-offset: 3px; }
   font-weight: 400;
   text-transform: uppercase;
   letter-spacing: 0;
+  color: var(--local-fg, var(--c-ink-emerald));
 }
 
 /* -- masked line reveal wrapper ------------------------------------------ */
@@ -98,4 +142,4 @@ button:focus-visible, a:focus-visible { outline-offset: 3px; }
   [data-reveal] { opacity: 1 !important; transform: none !important; }
 }
 
-::selection { background: var(--c-off-white); color: var(--c-black); }
+::selection { background: var(--c-emerald); color: var(--c-champagne); }

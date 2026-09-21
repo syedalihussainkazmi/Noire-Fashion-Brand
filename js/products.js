@@ -15,7 +15,7 @@ NOIRE.products = (function () {
       material: 'Wool / Silk',
       price: 1850,
       description: 'A single-breasted coat cut from double-faced wool, finished with a silk lining and hand-set shoulder line. Structured without excess.',
-      image: 'assets/images/product-coat.svg',
+      image: 'assets/images/photos/photo-09-fur-coat.jpg',
       sizes: ['XS', 'S', 'M', 'L', 'XL'],
     },
     {
@@ -26,7 +26,7 @@ NOIRE.products = (function () {
       material: 'Wool Gabardine',
       price: 1240,
       description: 'A boxed jacket with a squared shoulder and concealed closure, built for architectural volume rather than fit.',
-      image: 'assets/images/product-jacket.svg',
+      image: 'assets/images/photos/photo-08-blazer-flowers.jpg',
       sizes: ['XS', 'S', 'M', 'L', 'XL'],
     },
     {
@@ -48,7 +48,7 @@ NOIRE.products = (function () {
       material: 'Silk Charmeuse',
       price: 1120,
       description: 'A bias-cut slip dress in liquid silk charmeuse, falling from a single seam at the shoulder.',
-      image: 'assets/images/product-dress.svg',
+      image: 'assets/images/photos/photo-07-silk-dress.jpg',
       sizes: ['XS', 'S', 'M', 'L', 'XL'],
     },
     {
@@ -59,7 +59,7 @@ NOIRE.products = (function () {
       material: 'Wool / Cashmere',
       price: 1560,
       description: 'A double-breasted blazer in a wool-cashmere blend, with a longline body and peaked lapel drawn from menswear tailoring.',
-      image: 'assets/images/product-blazer.svg',
+      image: 'assets/images/photos/photo-06-suit-couple.jpg',
       sizes: ['XS', 'S', 'M', 'L', 'XL'],
     },
     {

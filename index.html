@@ -11,6 +11,13 @@
 </head>
 <body>
 
+<!-- ambient background wash — fixed, slow-drifting, purely decorative -->
+<div class="ambient-bg" aria-hidden="true">
+  <span class="ambient-bg__blob ambient-bg__blob--a"></span>
+  <span class="ambient-bg__blob ambient-bg__blob--b"></span>
+  <span class="ambient-bg__blob ambient-bg__blob--c"></span>
+</div>
+
 <!-- ==========================================================================
      PRELOADER
      ========================================================================== -->
@@ -51,7 +58,7 @@
        ====================================================================== -->
   <section class="hero" id="hero" aria-label="NOIRÉ Autumn Winter 2026">
     <div class="hero__media">
-      <img id="heroImg" src="assets/images/hero-main.svg" alt="NOIRÉ Autumn/Winter 2026 campaign composition — architectural figure study">
+      <img id="heroImg" src="assets/images/photos/photo-07-silk-dress.jpg" alt="NOIRÉ Autumn/Winter 2026 campaign — silk gown in motion, dramatic studio light">
       <div class="hero__scrim"></div>
     </div>
 
@@ -118,10 +125,10 @@
   <section class="campaign" id="campaign">
     <div class="wrap campaign__composition">
       <div class="campaign__img-a reveal-media" data-speed="0.85">
-        <img src="assets/images/campaign-large.svg" alt="NOIRÉ Autumn/Winter 2026 campaign — primary composition" loading="lazy">
+        <img src="assets/images/photos/photo-01-autumn-duo.jpg" alt="NOIRÉ Autumn/Winter 2026 campaign — primary composition" loading="lazy">
       </div>
       <div class="campaign__img-b reveal-media" data-speed="1.18">
-        <img src="assets/images/campaign-small.svg" alt="NOIRÉ Autumn/Winter 2026 campaign — secondary composition" loading="lazy">
+        <img src="assets/images/photos/photo-06-suit-couple.jpg" alt="NOIRÉ Autumn/Winter 2026 campaign — secondary composition" loading="lazy">
       </div>
       <p class="campaign__type" data-speed="1.05">
         <span class="mask-line"><span class="split-line__inner">SILENCE</span></span>
@@ -141,7 +148,7 @@
   <section class="film" id="film">
     <div class="wrap">
       <div class="film__frame reveal-media">
-        <img src="assets/images/film-still.svg" alt="Still from the NOIRÉ Autumn/Winter 2026 collection film" loading="lazy" data-speed="1.1">
+        <img src="assets/images/photos/photo-04-film-crew.jpg" alt="Behind the scenes of the NOIRÉ Autumn/Winter 2026 collection film" loading="lazy" data-speed="1.1">
         <div class="film__scrim"></div>
         <div class="film__content">
           <h2 class="film__headline" data-reveal>The Collection<br>in Motion.</h2>
@@ -180,7 +187,7 @@
     <div class="wrap">
       <div class="studio__grid">
         <div class="studio__image reveal-media">
-          <img src="assets/images/studio-portrait.svg" alt="Inside the NOIRÉ studio, Paris" loading="lazy" data-speed="1.08">
+          <img src="assets/images/photos/photo-03-studio-window.jpg" alt="Inside the NOIRÉ studio, Paris — quiet interior at dusk" loading="lazy" data-speed="1.08">
         </div>
         <div>
           <span class="eyebrow" data-reveal>The Studio</span>
@@ -211,19 +218,19 @@
       </div>
 
       <div class="lookbook__slide is-active" data-slide="0">
-        <img src="assets/images/look-01.svg" alt="Look 01 — NOIRÉ Autumn Winter 2026" loading="lazy">
+        <img src="assets/images/photos/photo-09-fur-coat.jpg" alt="Look 01 — NOIRÉ Coat, Autumn Winter 2026" loading="lazy">
         <div class="lookbook__slide-scrim"></div>
       </div>
       <div class="lookbook__slide" data-slide="1">
-        <img src="assets/images/look-02.svg" alt="Look 02 — NOIRÉ Autumn Winter 2026" loading="lazy">
+        <img src="assets/images/photos/photo-08-blazer-flowers.jpg" alt="Look 02 — Structured Jacket, NOIRÉ Autumn Winter 2026" loading="lazy">
         <div class="lookbook__slide-scrim"></div>
       </div>
       <div class="lookbook__slide" data-slide="2">
-        <img src="assets/images/look-03.svg" alt="Look 03 — NOIRÉ Autumn Winter 2026" loading="lazy">
+        <img src="assets/images/photos/photo-07-silk-dress.jpg" alt="Look 03 — Slip Dress, NOIRÉ Autumn Winter 2026" loading="lazy">
         <div class="lookbook__slide-scrim"></div>
       </div>
       <div class="lookbook__slide" data-slide="3">
-        <img src="assets/images/look-04.svg" alt="Look 04 — NOIRÉ Autumn Winter 2026" loading="lazy">
+        <img src="assets/images/photos/photo-06-suit-couple.jpg" alt="Look 04 — Double-Breasted Blazer, NOIRÉ Autumn Winter 2026" loading="lazy">
         <div class="lookbook__slide-scrim"></div>
       </div>
 
@@ -254,25 +261,25 @@
       </div>
       <div class="journal__grid">
         <a class="journal-card" href="#" data-cursor="view">
-          <div class="journal-card__media"><img src="assets/images/journal-01.svg" alt="The Art of Silhouette" loading="lazy"></div>
+          <div class="journal-card__media"><img src="assets/images/photos/photo-05-striped-portrait.jpg" alt="The Art of Silhouette" loading="lazy"></div>
           <span class="journal-card__num">01</span>
           <h3 class="journal-card__title">The Art of Silhouette</h3>
           <div class="journal-card__foot"><span>Design</span><span>Sep 2026</span></div>
         </a>
         <a class="journal-card" href="#" data-cursor="view">
-          <div class="journal-card__media"><img src="assets/images/journal-02.svg" alt="Inside the Studio" loading="lazy"></div>
+          <div class="journal-card__media"><img src="assets/images/photos/photo-04-film-crew.jpg" alt="Inside the Studio" loading="lazy"></div>
           <span class="journal-card__num">02</span>
           <h3 class="journal-card__title">Inside the Studio</h3>
           <div class="journal-card__foot"><span>Process</span><span>Aug 2026</span></div>
         </a>
         <a class="journal-card" href="#" data-cursor="view">
-          <div class="journal-card__media"><img src="assets/images/journal-03.svg" alt="Material / Form" loading="lazy"></div>
+          <div class="journal-card__media"><img src="assets/images/photos/photo-01-autumn-duo.jpg" alt="Material / Form" loading="lazy"></div>
           <span class="journal-card__num">03</span>
           <h3 class="journal-card__title">Material / Form</h3>
           <div class="journal-card__foot"><span>Craft</span><span>Jul 2026</span></div>
         </a>
         <a class="journal-card" href="#" data-cursor="view">
-          <div class="journal-card__media"><img src="assets/images/journal-04.svg" alt="The City After Dark" loading="lazy"></div>
+          <div class="journal-card__media"><img src="assets/images/photos/photo-02-night-portrait.jpg" alt="The City After Dark" loading="lazy"></div>
           <span class="journal-card__num">04</span>
           <h3 class="journal-card__title">The City After Dark</h3>
           <div class="journal-card__foot"><span>Campaign</span><span>Jun 2026</span></div>
@@ -297,7 +304,7 @@
        11 — FINAL CAMPAIGN IMAGE
        ====================================================================== -->
   <section class="final-campaign" id="finalCampaign">
-    <img src="assets/images/final-campaign.svg" alt="NOIRÉ — closing campaign image, Autumn Winter 2026" loading="lazy" data-speed="1.06">
+    <img src="assets/images/photos/photo-09-fur-coat.jpg" alt="NOIRÉ — closing campaign image, Autumn Winter 2026" loading="lazy" data-speed="1.06">
     <div class="final-campaign__scrim"></div>
     <p class="final-campaign__type" data-reveal>NOIRÉ<small>Form in Motion.</small></p>
   </section>

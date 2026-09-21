@@ -10,9 +10,10 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const OUT = path.join(__dirname, '..', 'assets', 'images');
 mkdirSync(OUT, { recursive: true });
 
-const INK = '#0c0c0d';
-const PAPER = '#efece6';
-const GRAY = '#3a3936';
+// Champagne & Emerald palette (keep in sync with css/variables.css)
+const INK = '#142922';    // ink-emerald
+const PAPER = '#f3e9d7';  // champagne
+const GRAY = '#8d7d5f';   // taupe
 
 // ---------- seeded RNG (deterministic output across runs) ----------
 function mulberry32(seed) {
@@ -145,12 +146,12 @@ function schematicSVG({ w = 800, h = 1000, type = 'coat', seed = 2, id = 's' } =
 // ---------- fabric / material macro texture ----------
 function materialSVG({ w = 900, h = 900, kind = 'wool', seed = 3, id = 'm' } = {}) {
   const cfg = {
-    wool: { freq: 0.9, oct: 3, base: '#2a2925' },
-    silk: { freq: 0.25, oct: 2, base: '#232220' },
-    leather: { freq: 0.35, oct: 4, base: '#171514' },
-    metal: { freq: 0.6, oct: 2, base: '#3c3c3e' },
-    cotton: { freq: 0.55, oct: 3, base: '#302e29' },
-    stitch: { freq: 0.7, oct: 2, base: '#1c1b19' },
+    wool: { freq: 0.9, oct: 3, base: '#223229' },
+    silk: { freq: 0.25, oct: 2, base: '#2b2438' },
+    leather: { freq: 0.35, oct: 4, base: '#241a14' },
+    metal: { freq: 0.6, oct: 2, base: '#33403a' },
+    cotton: { freq: 0.55, oct: 3, base: '#332c22' },
+    stitch: { freq: 0.7, oct: 2, base: '#1a231d' },
   }[kind] || { freq: 0.6, oct: 3, base: '#232220' };
 
   let overlayLines = '';
@@ -178,7 +179,7 @@ function materialSVG({ w = 900, h = 900, kind = 'wool', seed = 3, id = 'm' } = {
   <defs>
     <filter id="tex-${id}" x="-10%" y="-10%" width="120%" height="120%">
       <feTurbulence type="fractalNoise" baseFrequency="${cfg.freq}" numOctaves="${cfg.oct}" seed="${seed}" stitchTiles="stitch" result="n"/>
-      <feColorMatrix in="n" type="matrix" values="0 0 0 0 0.85  0 0 0 0 0.83  0 0 0 0 0.78  0 0 0 0.5 0" result="nc"/>
+      <feColorMatrix in="n" type="matrix" values="0 0 0 0 0.86  0 0 0 0 0.74  0 0 0 0 0.5  0 0 0 0.5 0" result="nc"/>
       <feComposite in="nc" in2="SourceGraphic" operator="in" result="tinted"/>
       <feBlend in="SourceGraphic" in2="tinted" mode="soft-light"/>
     </filter>
@@ -293,32 +294,44 @@ function motionStudySVG({ w = 1920, h = 1080, seed = 31, id = 'film' } = {}) {
 }
 
 // ================= GENERATE FILE SET =================
+//
+// Real campaign/lookbook/product photography now lives in
+// assets/images/photos/ (see README — "A note on the imagery"). This
+// generator still covers the pieces that stay illustrative by design:
+// the architectural garment schematics (a distinct NOIRÉ device, used for
+// the manifesto diagram and for the two products with no matching photo)
+// and the macro material-texture tiles. The hero/campaign/film/lookbook/
+// journal composition + croquis functions above are kept in the file —
+// and still fully working — for anyone who wants to fall back to the
+// illustration-only look; just uncomment the calls below.
 
-// Hero + section split images (dark, campaign tone)
+// Product schematics actually referenced by the site:
+//  - "coat" doubles as the manifesto section's diagram image
+//  - "trousers" and "skirt" have no matching supplied photo yet
+save('product-coat.svg', schematicSVG({ type: 'coat', seed: 100, id: 'p0' }));
+save('product-trousers.svg', schematicSVG({ type: 'trousers', seed: 102, id: 'p2' }));
+save('product-skirt.svg', schematicSVG({ type: 'skirt', seed: 105, id: 'p5' }));
+
+// Materials — macro fabric/hardware textures, all six still in use
+const materials = ['wool', 'silk', 'leather', 'metal', 'cotton', 'stitch'];
+materials.forEach((m, i) => save(`material-${m}.svg`, materialSVG({ kind: m, seed: 300 + i, id: 'mat' + i })));
+
+/* -- illustration-only fallback set (uncomment to regenerate) --------------
 save('hero-main.svg', compositionSVG({ w: 1920, h: 1080, seed: 11, id: 'hero', tone: 'dark', wide: true }));
 save('campaign-large.svg', compositionSVG({ w: 1400, h: 1800, seed: 21, id: 'camL', tone: 'dark', twin: false }));
 save('campaign-small.svg', compositionSVG({ w: 900, h: 1200, seed: 22, id: 'camS', tone: 'light', twin: false }));
 save('film-still.svg', motionStudySVG({ w: 1920, h: 1080, seed: 31, id: 'film' }));
 save('final-campaign.svg', compositionSVG({ w: 1920, h: 1300, seed: 41, id: 'finalc', tone: 'dark', wide: true, twin: false }));
 save('studio-portrait.svg', compositionSVG({ w: 1100, h: 1400, seed: 51, id: 'studio', tone: 'light', twin: false }));
-
-// Product schematics
-const products = ['coat', 'jacket', 'trousers', 'dress', 'blazer', 'skirt'];
-products.forEach((p, i) => save(`product-${p}.svg`, schematicSVG({ type: p, seed: 100 + i, id: 'p' + i })));
-
-// Lookbook — authored landscape-native (the stage crops to ~16:9) so the
-// full figure, head to hem, stays in frame instead of being cover-cropped.
+save('product-jacket.svg', schematicSVG({ type: 'jacket', seed: 101, id: 'p1' }));
+save('product-dress.svg', schematicSVG({ type: 'dress', seed: 103, id: 'p3' }));
+save('product-blazer.svg', schematicSVG({ type: 'blazer', seed: 104, id: 'p4' }));
 for (let i = 1; i <= 4; i++) {
   save(`look-0${i}.svg`, compositionSVG({ w: 1920, h: 1080, seed: 200 + i, id: 'look' + i, tone: i % 2 ? 'dark' : 'light', wide: true, twin: i % 2 === 1 }));
 }
-
-// Materials
-const materials = ['wool', 'silk', 'leather', 'metal', 'cotton', 'stitch'];
-materials.forEach((m, i) => save(`material-${m}.svg`, materialSVG({ kind: m, seed: 300 + i, id: 'mat' + i })));
-
-// Journal thumbnails (small croquis studies)
 for (let i = 1; i <= 4; i++) {
   save(`journal-0${i}.svg`, croquisSVG({ w: 700, h: 500, seed: 400 + i, bg: '#171613', stroke: PAPER, id: 'jr' + i }));
 }
+---------------------------------------------------------------------- */
 
 console.log('Done. Assets in', OUT);

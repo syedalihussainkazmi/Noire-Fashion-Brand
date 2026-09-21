@@ -109,9 +109,9 @@ NOIRE.anim = (function () {
       onUpdate: (self) => {
         nav.classList.toggle('is-scrolled', self.scroll() > 20);
         const goingDown = self.direction === 1;
-        if (self.scroll() > 200) {
-          nav.style.transform = goingDown ? 'translateY(-100%)' : 'translateY(0)';
-        }
+        // near the top the nav always stays put; direction-based hide/show
+        // only kicks in once scrolled far enough that the hero is behind us
+        nav.style.transform = self.scroll() > 200 && goingDown ? 'translateY(-100%)' : 'translateY(0)';
       },
     });
   }
@@ -272,10 +272,10 @@ NOIRE.anim = (function () {
     if (!openBtn || !overlay) return;
 
     const sequence = [
-      { src: 'assets/images/film-still.svg', label: 'Sequence 01 — Entrance' },
-      { src: 'assets/images/campaign-large.svg', label: 'Sequence 02 — Silhouette' },
-      { src: 'assets/images/look-02.svg', label: 'Sequence 03 — Movement' },
-      { src: 'assets/images/look-04.svg', label: 'Sequence 04 — Close' },
+      { src: 'assets/images/photos/photo-04-film-crew.jpg', label: 'Sequence 01 — Entrance' },
+      { src: 'assets/images/photos/photo-09-fur-coat.jpg', label: 'Sequence 02 — Silhouette' },
+      { src: 'assets/images/photos/photo-08-blazer-flowers.jpg', label: 'Sequence 03 — Movement' },
+      { src: 'assets/images/photos/photo-06-suit-couple.jpg', label: 'Sequence 04 — Close' },
     ];
     let i = 0;
     let timer = null;

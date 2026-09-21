@@ -1,0 +1,101 @@
+/* ==========================================================================
+   NOIRÉ — reset & base typography
+   ========================================================================== */
+*, *::before, *::after { box-sizing: border-box; }
+
+html {
+  background: var(--c-bg);
+  color-scheme: dark;
+  scroll-behavior: auto;
+}
+
+html.no-js .reveal,
+html.no-js [data-reveal],
+html.no-js .split-line__inner { opacity: 1 !important; transform: none !important; }
+
+body {
+  margin: 0;
+  min-width: 1180px;
+  background: var(--c-bg);
+  color: var(--c-fg);
+  font-family: var(--f-sans);
+  font-size: var(--fs-body);
+  line-height: var(--lh-body);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: clip;
+  cursor: none;
+}
+
+body.no-custom-cursor { cursor: auto; }
+
+img, svg { display: block; max-width: 100%; }
+img { height: auto; }
+
+a { color: inherit; text-decoration: none; }
+button { font: inherit; color: inherit; background: none; border: 0; padding: 0; cursor: none; }
+body.no-custom-cursor button, body.no-custom-cursor a { cursor: pointer; }
+
+ul { list-style: none; margin: 0; padding: 0; }
+input { font: inherit; color: inherit; background: none; border: 0; }
+
+h1, h2, h3, h4, p, figure { margin: 0; }
+
+.visually-hidden {
+  position: absolute; width: 1px; height: 1px;
+  padding: 0; margin: -1px; overflow: hidden;
+  clip: rect(0,0,0,0); white-space: nowrap; border: 0;
+}
+
+/* -- focus states ------------------------------------------------------- */
+:focus-visible {
+  outline: 1px solid var(--c-off-white);
+  outline-offset: 4px;
+}
+button:focus-visible, a:focus-visible { outline-offset: 3px; }
+
+/* -- headings ------------------------------------------------------------ */
+.font-display { font-family: var(--f-display); font-weight: 400; letter-spacing: var(--ls-tight); }
+.font-sans { font-family: var(--f-sans); }
+
+.eyebrow {
+  display: block;
+  font-family: var(--f-sans);
+  font-size: var(--fs-xs);
+  letter-spacing: var(--ls-wide);
+  text-transform: uppercase;
+  color: var(--c-warm-gray);
+  font-weight: 500;
+}
+
+.section-heading {
+  font-family: var(--f-display);
+  font-size: var(--fs-xxl);
+  line-height: var(--lh-tight);
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 0;
+}
+
+/* -- masked line reveal wrapper ------------------------------------------ */
+.mask-line { overflow: hidden; display: block; }
+.mask-line > * { display: block; will-change: transform; }
+
+/* -- generic reveal (fallback / non-GSAP) -------------------------------- */
+[data-reveal] {
+  opacity: 0;
+  transform: translateY(28px);
+}
+
+/* -- reduced motion -------------------------------------------------------*/
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+  [data-reveal] { opacity: 1 !important; transform: none !important; }
+}
+
+::selection { background: var(--c-off-white); color: var(--c-black); }

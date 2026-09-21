@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 1400" width="1100" height="1400" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <filter id="grain-studio"><feTurbulence type="fractalNoise" baseFrequency="1.1" numOctaves="2" seed="51" stitchTiles="stitch"/><feColorMatrix type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 0.05 0"/></filter>
+    <linearGradient id="lg-studio" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#efece6"/>
+      <stop offset="100%" stop-color="#e7e3db"/>
+    </linearGradient>
+    <radialGradient id="glow-studio" cx="44.35240233317017%" cy="45%" r="60%">
+      <stop offset="0%" stop-color="#0c0c0d" stop-opacity="0.1"/>
+      <stop offset="100%" stop-color="#0c0c0d" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="1100" height="1400" fill="url(#lg-studio)"/>
+  <rect width="1100" height="1400" fill="url(#glow-studio)"/>
+  <g><line x1="0" y1="0" x2="0" y2="1400" stroke="#0c0c0d" stroke-width="0.4" opacity="0.075"/><line x1="183.33333333333334" y1="0" x2="183.33333333333334" y2="1400" stroke="#0c0c0d" stroke-width="0.4" opacity="0.075"/><line x1="366.6666666666667" y1="0" x2="366.6666666666667" y2="1400" stroke="#0c0c0d" stroke-width="0.4" opacity="0.075"/><line x1="550" y1="0" x2="550" y2="1400" stroke="#0c0c0d" stroke-width="0.4" opacity="0.075"/><line x1="733.3333333333334" y1="0" x2="733.3333333333334" y2="1400" stroke="#0c0c0d" stroke-width="0.4" opacity="0.075"/><line x1="916.6666666666667" y1="0" x2="916.6666666666667" y2="1400" stroke="#0c0c0d" stroke-width="0.4" opacity="0.075"/><line x1="1100" y1="0" x2="1100" y2="1400" stroke="#0c0c0d" stroke-width="0.4" opacity="0.075"/><line x1="0" y1="1316" x2="1100" y2="1316" stroke="#0c0c0d" stroke-width="0.6" opacity="0.16"/><line x1="487.8764256648719" y1="28" x2="487.8764256648719" y2="1316" stroke="#0c0c0d" stroke-width="0.5" opacity="0.14" stroke-dasharray="1 7"/><line x1="477.8764256648719" y1="28" x2="497.8764256648719" y2="28" stroke="#0c0c0d" stroke-width="0.5" opacity="0.16"/><line x1="477.8764256648719" y1="350" x2="497.8764256648719" y2="350" stroke="#0c0c0d" stroke-width="0.5" opacity="0.16"/><line x1="477.8764256648719" y1="672" x2="497.8764256648719" y2="672" stroke="#0c0c0d" stroke-width="0.5" opacity="0.16"/><line x1="477.8764256648719" y1="994" x2="497.8764256648719" y2="994" stroke="#0c0c0d" stroke-width="0.5" opacity="0.16"/><line x1="477.8764256648719" y1="1316" x2="497.8764256648719" y2="1316" stroke="#0c0c0d" stroke-width="0.5" opacity="0.16"/></g>
+  
+  <g transform="translate(187.87642566487187,70)" opacity="0.88">
+    <path d="M 300 55.37777777777777
+    C 314 75.37777777777777 316 119.21481481481482 306 129.21481481481482
+    C 248.56777836568654 156.9037037037037 242.56777836568654 297.194074074074 255.1293424051255 424.56296296296296
+    C 276 489.1703703703704 264 509.1703703703704 258 682.9925925925926
+    C 254 722.9925925925926 260 865.2740740740741 266 895.2740740740741
+    M 306 129.21481481481482
+    C 357.43222163431346 156.9037037037037 361.43222163431346 305.6853333333333 344.8706575948745 424.56296296296296
+    C 322 489.1703703703704 334 513.1703703703704 340 682.9925925925926
+    C 344 728.9925925925926 330 875.2740740740741 320 895.2740740740741
+    M 258.56777836568654 162.9037037037037
+    C 230 216.9037037037037 234 394.56296296296296 250 434.56296296296296
+    M 343.43222163431346 162.9037037037037
+    C 372 206.9037037037037 360 404.56296296296296 344 430.56296296296296" fill="none" stroke="#0c0c0d" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" transform="scale(1.35)"/>
+  </g>
+  <rect width="1100" height="1400" filter="url(#grain-studio)"/>
+</svg>

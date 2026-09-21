@@ -1,0 +1,29 @@
+/* ==========================================================================
+   NOIRÉ — animation helpers
+   Most motion is orchestrated by GSAP (js/animations.js). This file only
+   holds the CSS-side primitives GSAP hooks into, plus pure-CSS keyframes.
+   ========================================================================== */
+
+.split-line { overflow: hidden; }
+/* Initial hidden offset for mask-reveal text is set by GSAP (gsap.set) at
+   animation-system boot, not here — a CSS-authored percentage transform
+   gets baked into a fixed-px matrix by the time GSAP reads it, which then
+   desyncs from the yPercent tween that's meant to animate it back to 0. */
+.split-line__inner { display: block; white-space: nowrap; will-change: transform; }
+
+.char-stagger span { display: inline-block; will-change: transform, opacity; }
+
+/* image reveal clip — GSAP animates clip-path/scale on .reveal-media */
+.reveal-media { position: relative; overflow: hidden; }
+.reveal-media img { will-change: transform, clip-path; }
+
+/* generic fade-up used by ScrollTrigger batches */
+.fade-up { opacity: 0; transform: translateY(36px); }
+
+/* pin spacer safety: prevent horizontal scrollbar during pinned sections */
+html.gsap-pinning { overflow-x: hidden; }
+
+@keyframes pulse-dot {
+  0%, 100% { opacity: 0.4; }
+  50% { opacity: 1; }
+}

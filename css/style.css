@@ -1,0 +1,15 @@
+/* ==========================================================================
+   NOIRÉ — stylesheet entry point
+   Load order matters: tokens → reset/type → layout → components → animation
+   ========================================================================== */
+@import url('https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,500;1,6..96,400&family=Inter:wght@300;400;500;600&display=swap');
+
+@import 'variables.css';
+@import 'base.css';
+@import 'layout.css';
+@import 'components.css';
+@import 'animations.css';
+
+html { scrollbar-width: thin; scrollbar-color: var(--c-graphite) transparent; }
+body::-webkit-scrollbar { width: 8px; }
+body::-webkit-scrollbar-thumb { background: var(--c-graphite); }

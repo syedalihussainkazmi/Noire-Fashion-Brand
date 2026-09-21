@@ -1,0 +1,58 @@
+/* ==========================================================================
+   NOIRÉ — design tokens
+   ========================================================================== */
+:root {
+  /* -- palette -------------------------------------------------------- */
+  --c-black:        #0a0a0a;
+  --c-ink:           #121212;
+  --c-charcoal:      #1c1b1a;
+  --c-graphite:      #3a3936;
+  --c-warm-gray:     #8a857c;
+  --c-stone:         #c9c3b8;
+  --c-off-white:     #efece6;
+  --c-paper:         #f6f4ef;
+  --c-burgundy:      #4a1418;
+  --c-silver:        #b7b2a9;
+
+  --c-bg:            var(--c-black);
+  --c-fg:            var(--c-off-white);
+
+  /* -- type ------------------------------------------------------------ */
+  --f-display: 'Bodoni Moda', 'Times New Roman', serif;
+  --f-sans: 'Inter', -apple-system, 'Helvetica Neue', Arial, sans-serif;
+
+  --fs-hero: clamp(4.5rem, 9vw, 10.5rem);
+  --fs-xxl: clamp(3rem, 5.6vw, 6.5rem);
+  --fs-xl: clamp(2.1rem, 3.4vw, 3.75rem);
+  --fs-lg: clamp(1.5rem, 2.1vw, 2.25rem);
+  --fs-md: 1.125rem;
+  --fs-body: 0.95rem;
+  --fs-sm: 0.8rem;
+  --fs-xs: 0.7rem;
+
+  --lh-tight: 0.96;
+  --lh-heading: 1.08;
+  --lh-body: 1.65;
+
+  --ls-label: 0.22em;
+  --ls-wide: 0.34em;
+  --ls-tight: -0.01em;
+
+  /* -- spacing / grid --------------------------------------------------- */
+  --gutter: clamp(28px, 3.4vw, 64px);
+  --section-pad: clamp(96px, 12vw, 200px);
+  --nav-h: 92px;
+
+  /* -- motion ------------------------------------------------------------ */
+  --ease-editorial: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-soft: cubic-bezier(0.22, 0.61, 0.36, 1);
+  --dur-fast: 0.4s;
+  --dur-med: 0.9s;
+  --dur-slow: 1.6s;
+
+  /* -- z-index scale -------------------------------------------------- */
+  --z-cursor: 900;
+  --z-nav: 500;
+  --z-overlay: 800;
+  --z-loader: 950;
+}

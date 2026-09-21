@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NOIRÉ — Form in Motion</title>
+<meta name="description" content="NOIRÉ. Autumn/Winter 2026. Form. Movement. Silence. A contemporary luxury fashion house.">
+<link rel="icon" href="assets/images/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="css/style.css">
+<script>document.documentElement.classList.replace('no-js','js');</script>
+</head>
+<body>
+
+<!-- ==========================================================================
+     PRELOADER
+     ========================================================================== -->
+<div class="loader" id="loader" aria-hidden="true">
+  <div class="loader__mark font-display"><span>NOIRÉ</span></div>
+</div>
+
+<!-- custom cursor -->
+<div class="cursor" id="cursor" aria-hidden="true"><span class="cursor__label" id="cursorLabel"></span></div>
+
+<!-- ==========================================================================
+     NAVIGATION
+     ========================================================================== -->
+<header class="site-nav" id="siteNav">
+  <div class="site-nav__inner">
+    <a href="#hero" class="site-nav__mark font-display">NOIRÉ<small>PARIS / 2026</small></a>
+
+    <nav class="site-nav__links" aria-label="Primary">
+      <a href="#collection">Collection</a>
+      <a href="#campaign">Campaign</a>
+      <a href="#studio">Studio</a>
+      <a href="#journal">Journal</a>
+    </nav>
+
+    <div class="site-nav__actions">
+      <a href="#storefront" class="site-nav__shop" data-cursor="enter">Shop →</a>
+      <button class="site-nav__bag" id="bagToggle" aria-haspopup="dialog" aria-controls="cartDrawer">
+        Bag <span class="site-nav__bag-count" id="bagCount">0</span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+
+  <!-- ======================================================================
+       01 — HERO
+       ====================================================================== -->
+  <section class="hero" id="hero" aria-label="NOIRÉ Autumn Winter 2026">
+    <div class="hero__media">
+      <img id="heroImg" src="assets/images/hero-main.svg" alt="NOIRÉ Autumn/Winter 2026 campaign composition — architectural figure study">
+      <div class="hero__scrim"></div>
+    </div>
+
+    <div class="hero__top">
+      <div class="hero__meta" data-reveal>
+        <span>Collection 01</span>
+        <span>Autumn / Winter 2026</span>
+      </div>
+    </div>
+
+    <div class="hero__bottom">
+      <h1 class="hero__headline">
+        <span class="mask-line"><span class="split-line__inner" id="heroLine1">FORM</span></span>
+        <span class="mask-line"><span class="split-line__inner" id="heroLine2">IN MOTION.</span></span>
+      </h1>
+      <a href="#collection" class="hero__cta" data-reveal data-cursor="enter">
+        <span>Enter Collection</span><span class="cta-line"></span>
+      </a>
+    </div>
+
+    <div class="hero__scrollcue" data-reveal><span class="line"></span>Scroll</div>
+  </section>
+
+  <!-- ======================================================================
+       02 — MANIFESTO
+       ====================================================================== -->
+  <section class="manifesto" id="manifesto">
+    <div class="wrap">
+      <div class="manifesto__grid">
+        <div class="manifesto__label">
+          <span class="eyebrow" data-reveal>Manifesto</span>
+        </div>
+        <h2 class="manifesto__statement">
+          <span class="mask-line"><span class="split-line__inner">CLOTHING</span></span>
+          <span class="mask-line"><span class="split-line__inner">AS ARCHITECTURE.</span></span>
+        </h2>
+      </div>
+      <div class="manifesto__copy">
+        <p data-reveal>NOIRÉ explores the relationship between silhouette, movement, material, and space. Each garment is drawn before it is cut — a structure, not a decoration.</p>
+      </div>
+      <div class="manifesto__diagram" data-reveal>
+        <img src="assets/images/product-coat.svg" alt="Architectural garment schematic diagram" loading="lazy">
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================================================================
+       03 — COLLECTION
+       ====================================================================== -->
+  <section class="collection" id="collection">
+    <div class="wrap">
+      <div class="collection__head">
+        <h2 class="section-heading" data-reveal>The<br>Collection</h2>
+        <p class="collection__head-meta" data-reveal>Autumn / Winter 2026 — six silhouettes, constructed in wool, silk, and structured cotton. Numbered in order of appearance.</p>
+      </div>
+
+      <div id="collectionList"><!-- rendered by products.js --></div>
+    </div>
+  </section>
+
+  <!-- ======================================================================
+       04 — EDITORIAL CAMPAIGN
+       ====================================================================== -->
+  <section class="campaign" id="campaign">
+    <div class="wrap campaign__composition">
+      <div class="campaign__img-a reveal-media" data-speed="0.85">
+        <img src="assets/images/campaign-large.svg" alt="NOIRÉ Autumn/Winter 2026 campaign — primary composition" loading="lazy">
+      </div>
+      <div class="campaign__img-b reveal-media" data-speed="1.18">
+        <img src="assets/images/campaign-small.svg" alt="NOIRÉ Autumn/Winter 2026 campaign — secondary composition" loading="lazy">
+      </div>
+      <p class="campaign__type" data-speed="1.05">
+        <span class="mask-line"><span class="split-line__inner">SILENCE</span></span>
+        <span class="mask-line"><span class="split-line__inner">HAS A</span></span>
+        <span class="mask-line"><span class="split-line__inner">SHAPE.</span></span>
+      </p>
+      <div class="campaign__caption" data-reveal>
+        <strong>Campaign 01</strong>
+        Photographed in Paris. Autumn/Winter 2026.
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================================================================
+       05 — COLLECTION FILM
+       ====================================================================== -->
+  <section class="film" id="film">
+    <div class="wrap">
+      <div class="film__frame reveal-media">
+        <img src="assets/images/film-still.svg" alt="Still from the NOIRÉ Autumn/Winter 2026 collection film" loading="lazy" data-speed="1.1">
+        <div class="film__scrim"></div>
+        <div class="film__content">
+          <h2 class="film__headline" data-reveal>The Collection<br>in Motion.</h2>
+          <button class="film__play" id="playFilm" data-cursor="link">
+            <svg viewBox="0 0 16 16" fill="none"><path d="M4 2.5L13.5 8L4 13.5V2.5Z" fill="currentColor"/></svg>
+            Play Film
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================================================================
+       06 — MATERIALS
+       ====================================================================== -->
+  <section class="materials" id="materials">
+    <div class="wrap">
+      <div class="materials__head">
+        <h2 class="section-heading" data-reveal>Material<br>Matters.</h2>
+      </div>
+      <div class="materials__grid">
+        <div class="material-tile"><img src="assets/images/material-wool.svg" alt="Macro detail of NOIRÉ wool weave" loading="lazy"><span class="material-tile__label"><span>Wool</span><span>Melton, 620gsm</span></span></div>
+        <div class="material-tile"><img src="assets/images/material-silk.svg" alt="Macro detail of NOIRÉ silk charmeuse" loading="lazy"><span class="material-tile__label"><span>Silk</span><span>Charmeuse</span></span></div>
+        <div class="material-tile"><img src="assets/images/material-leather.svg" alt="Macro detail of NOIRÉ leather trim" loading="lazy"><span class="material-tile__label"><span>Leather</span><span>Vegetable-tanned</span></span></div>
+        <div class="material-tile"><img src="assets/images/material-metal.svg" alt="Macro detail of NOIRÉ hardware finish" loading="lazy"><span class="material-tile__label"><span>Hardware</span><span>Brushed nickel</span></span></div>
+        <div class="material-tile"><img src="assets/images/material-cotton.svg" alt="Macro detail of NOIRÉ cotton twill" loading="lazy"><span class="material-tile__label"><span>Cotton</span><span>Structured twill</span></span></div>
+        <div class="material-tile"><img src="assets/images/material-stitch.svg" alt="Macro detail of NOIRÉ hand-finished stitching" loading="lazy"><span class="material-tile__label"><span>Stitch</span><span>Hand-finished seam</span></span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================================================================
+       07 — STUDIO
+       ====================================================================== -->
+  <section class="studio" id="studio">
+    <div class="wrap">
+      <div class="studio__grid">
+        <div class="studio__image reveal-media">
+          <img src="assets/images/studio-portrait.svg" alt="Inside the NOIRÉ studio, Paris" loading="lazy" data-speed="1.08">
+        </div>
+        <div>
+          <span class="eyebrow" data-reveal>The Studio</span>
+          <p class="studio__quote" data-reveal style="margin-top:20px;">"Every silhouette begins with a question."</p>
+          <div class="studio__body">
+            <p data-reveal>NOIRÉ explores proportion, restraint, movement, and construction — a working process closer to architecture than to trend.</p>
+            <p data-reveal>The studio operates from Paris, producing two collections a year in small, considered runs.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================================================================
+       08 — LOOKBOOK
+       ====================================================================== -->
+  <section class="lookbook" id="lookbook">
+    <div class="wrap">
+      <span class="eyebrow" data-reveal style="display:block;margin-bottom:28px;">Lookbook — AW26</span>
+    </div>
+    <div class="lookbook__stage" id="lookbookStage" tabindex="0" aria-roledescription="carousel" aria-label="NOIRÉ Autumn Winter 2026 Lookbook">
+
+      <div class="lookbook__index" id="lookbookIndex">
+        <button data-look="0" class="is-active">Look 01</button>
+        <button data-look="1">Look 02</button>
+        <button data-look="2">Look 03</button>
+        <button data-look="3">Look 04</button>
+      </div>
+
+      <div class="lookbook__slide is-active" data-slide="0">
+        <img src="assets/images/look-01.svg" alt="Look 01 — NOIRÉ Autumn Winter 2026" loading="lazy">
+        <div class="lookbook__slide-scrim"></div>
+      </div>
+      <div class="lookbook__slide" data-slide="1">
+        <img src="assets/images/look-02.svg" alt="Look 02 — NOIRÉ Autumn Winter 2026" loading="lazy">
+        <div class="lookbook__slide-scrim"></div>
+      </div>
+      <div class="lookbook__slide" data-slide="2">
+        <img src="assets/images/look-03.svg" alt="Look 03 — NOIRÉ Autumn Winter 2026" loading="lazy">
+        <div class="lookbook__slide-scrim"></div>
+      </div>
+      <div class="lookbook__slide" data-slide="3">
+        <img src="assets/images/look-04.svg" alt="Look 04 — NOIRÉ Autumn Winter 2026" loading="lazy">
+        <div class="lookbook__slide-scrim"></div>
+      </div>
+
+      <div class="lookbook__meta">
+        <span class="eyebrow" id="lookbookLabel">Look 01 / 04</span>
+        <strong id="lookbookGarment">Noiré Coat — Wool / Silk</strong>
+      </div>
+
+      <div class="lookbook__controls">
+        <span class="lookbook__count"><b id="lookbookCurrent">01</b> / 04</span>
+        <button class="lookbook__arrow" id="lookbookPrev" aria-label="Previous look" data-cursor="link">
+          <svg viewBox="0 0 16 16" fill="none"><path d="M10 2L4 8L10 14" stroke="currentColor" stroke-width="1.4"/></svg>
+        </button>
+        <button class="lookbook__arrow" id="lookbookNext" aria-label="Next look" data-cursor="link">
+          <svg viewBox="0 0 16 16" fill="none"><path d="M6 2L12 8L6 14" stroke="currentColor" stroke-width="1.4"/></svg>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================================================================
+       09 — JOURNAL
+       ====================================================================== -->
+  <section class="journal" id="journal">
+    <div class="wrap">
+      <div class="journal__head">
+        <h2 class="section-heading" data-reveal>Noiré<br>Journal</h2>
+      </div>
+      <div class="journal__grid">
+        <a class="journal-card" href="#" data-cursor="view">
+          <div class="journal-card__media"><img src="assets/images/journal-01.svg" alt="The Art of Silhouette" loading="lazy"></div>
+          <span class="journal-card__num">01</span>
+          <h3 class="journal-card__title">The Art of Silhouette</h3>
+          <div class="journal-card__foot"><span>Design</span><span>Sep 2026</span></div>
+        </a>
+        <a class="journal-card" href="#" data-cursor="view">
+          <div class="journal-card__media"><img src="assets/images/journal-02.svg" alt="Inside the Studio" loading="lazy"></div>
+          <span class="journal-card__num">02</span>
+          <h3 class="journal-card__title">Inside the Studio</h3>
+          <div class="journal-card__foot"><span>Process</span><span>Aug 2026</span></div>
+        </a>
+        <a class="journal-card" href="#" data-cursor="view">
+          <div class="journal-card__media"><img src="assets/images/journal-03.svg" alt="Material / Form" loading="lazy"></div>
+          <span class="journal-card__num">03</span>
+          <h3 class="journal-card__title">Material / Form</h3>
+          <div class="journal-card__foot"><span>Craft</span><span>Jul 2026</span></div>
+        </a>
+        <a class="journal-card" href="#" data-cursor="view">
+          <div class="journal-card__media"><img src="assets/images/journal-04.svg" alt="The City After Dark" loading="lazy"></div>
+          <span class="journal-card__num">04</span>
+          <h3 class="journal-card__title">The City After Dark</h3>
+          <div class="journal-card__foot"><span>Campaign</span><span>Jun 2026</span></div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================================================================
+       10 — STOREFRONT
+       ====================================================================== -->
+  <section class="storefront" id="storefront">
+    <div class="wrap">
+      <div class="storefront__head">
+        <h2 class="section-heading" data-reveal>The Collection</h2>
+      </div>
+      <div class="storefront__rail" id="storefrontRail"><!-- rendered by products.js --></div>
+    </div>
+  </section>
+
+  <!-- ======================================================================
+       11 — FINAL CAMPAIGN IMAGE
+       ====================================================================== -->
+  <section class="final-campaign" id="finalCampaign">
+    <img src="assets/images/final-campaign.svg" alt="NOIRÉ — closing campaign image, Autumn Winter 2026" loading="lazy" data-speed="1.06">
+    <div class="final-campaign__scrim"></div>
+    <p class="final-campaign__type" data-reveal>NOIRÉ<small>Form in Motion.</small></p>
+  </section>
+
+</main>
+
+<!-- ==========================================================================
+     FOOTER
+     ========================================================================== -->
+<footer class="site-footer" id="contact">
+  <div class="wrap">
+    <div class="site-footer__top">
+      <div class="site-footer__brand">
+        <span class="font-display">NOIRÉ</span>
+        <p>A contemporary luxury fashion house. Paris, 2026.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Shop</h4>
+        <ul>
+          <li><a href="#collection">Collection</a></li>
+          <li><a href="#storefront">Storefront</a></li>
+          <li><a href="#lookbook">Lookbook</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>House</h4>
+        <ul>
+          <li><a href="#studio">Studio</a></li>
+          <li><a href="#journal">Journal</a></li>
+          <li><a href="#campaign">Campaign</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="mailto:atelier@noire-paris.com">atelier@noire-paris.com</a></li>
+          <li><a href="#" data-cursor="link">Instagram</a></li>
+          <li><a href="#" data-cursor="link">Pinterest</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Newsletter</h4>
+        <form class="newsletter-form" id="newsletterForm" novalidate>
+          <label for="newsletterEmail" class="visually-hidden">Email address</label>
+          <input type="email" id="newsletterEmail" placeholder="Email address" required autocomplete="email">
+          <button type="submit" class="btn-ghost" data-cursor="link">Join →</button>
+        </form>
+        <p class="newsletter-msg" id="newsletterMsg" role="status" aria-live="polite"></p>
+      </div>
+    </div>
+    <div class="site-footer__bottom">
+      <span>Paris / New York / London</span>
+      <span>2026 © NOIRÉ</span>
+    </div>
+  </div>
+</footer>
+
+<!-- ==========================================================================
+     CART DRAWER
+     ========================================================================== -->
+<div class="backdrop" id="backdrop"></div>
+<aside class="cart-drawer" id="cartDrawer" role="dialog" aria-modal="true" aria-label="Shopping bag">
+  <div class="cart-drawer__head">
+    <h2 class="font-display">Bag</h2>
+    <button class="cart-drawer__close" id="cartClose" aria-label="Close bag" data-cursor="link">
+      <svg viewBox="0 0 16 16" fill="none"><path d="M2 2L14 14M14 2L2 14" stroke="currentColor" stroke-width="1.3"/></svg>
+    </button>
+  </div>
+  <div class="cart-drawer__body" id="cartBody">
+    <p class="cart-drawer__empty">Your bag is empty.</p>
+  </div>
+  <div class="cart-drawer__foot">
+    <div class="cart-drawer__subtotal"><span>Subtotal</span><span id="cartSubtotal">$0</span></div>
+    <p class="cart-drawer__note">Shipping and taxes calculated at checkout.</p>
+    <button class="btn-solid" id="checkoutBtn">Checkout →</button>
+    <p class="cart-drawer__status" id="cartStatus"></p>
+  </div>
+</aside>
+
+<!-- ==========================================================================
+     PRODUCT OVERLAY
+     ========================================================================== -->
+<div class="product-overlay" id="productOverlay" role="dialog" aria-modal="true" aria-label="Product detail">
+  <button class="product-overlay__close" id="productClose" aria-label="Close product" data-cursor="link">
+    <svg viewBox="0 0 16 16" fill="none"><path d="M2 2L14 14M14 2L2 14" stroke="currentColor" stroke-width="1.3"/></svg>
+  </button>
+  <div class="product-overlay__grid" id="productOverlayContent"><!-- rendered by cart.js --></div>
+</div>
+
+<!-- ==========================================================================
+     FILM OVERLAY
+     ========================================================================== -->
+<div class="film-overlay" id="filmOverlay" role="dialog" aria-modal="true" aria-label="Collection film">
+  <button class="film-overlay__close" id="filmClose" aria-label="Close film" data-cursor="link">
+    <svg viewBox="0 0 16 16" fill="none"><path d="M2 2L14 14M14 2L2 14" stroke="currentColor" stroke-width="1.3"/></svg>
+  </button>
+  <div class="film-overlay__progress" id="filmProgress"></div>
+  <div class="film-overlay__frame" id="filmFrame"></div>
+  <p class="film-overlay__caption" id="filmCaption">Sequence 01 — Entrance</p>
+</div>
+
+<script src="js/vendor/gsap.min.js"></script>
+<script src="js/vendor/ScrollTrigger.min.js"></script>
+<script src="js/vendor/lenis.min.js"></script>
+<script src="js/utils.js"></script>
+<script src="js/products.js"></script>
+<script src="js/cart.js"></script>
+<script src="js/animations.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>

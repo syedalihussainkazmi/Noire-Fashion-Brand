@@ -572,6 +572,19 @@ section { position: relative; }
 }
 .final-campaign img { position: absolute; inset: -4%; width: 108%; height: 108%; max-width: none; object-fit: cover; will-change: transform; }
 .final-campaign__scrim { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(9,18,15,0.48) 0%, rgba(9,18,15,0.12) 40%, rgba(9,18,15,0.65) 100%); }
+/* the photo's own bottom tones never exactly match the footer's flat
+   --c-emerald-black, so a hard cut is still visible even though both
+   "sections" are conceptually dark — fade the last stretch of the photo
+   into that exact color so the seam disappears instead of just being a
+   smaller-contrast version of the same hard line. */
+.final-campaign::after {
+  content: '';
+  position: absolute; left: 0; right: 0; bottom: 0;
+  height: min(280px, 38%);
+  background: linear-gradient(180deg, transparent 0%, var(--c-emerald-black) 100%);
+  z-index: 3;
+  pointer-events: none;
+}
 .final-campaign__type {
   position: relative; z-index: 2; text-align: center;
   font-family: var(--f-display); text-transform: uppercase;

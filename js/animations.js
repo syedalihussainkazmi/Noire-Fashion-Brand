@@ -439,12 +439,19 @@ NOIRE.anim = (function () {
     initLenis();
     initCursor();
     initNav();
+    // initLookbook creates a pinned ScrollTrigger, which inserts a real
+    // pin-spacer element into the document and changes total page height.
+    // It must run before any of the position-dependent triggers below are
+    // created, or their start/end pixel values get computed against a
+    // shorter document and end up firing hundreds of pixels early for
+    // everything that follows the pinned section (this is exactly what
+    // was happening to the final-campaign reveal).
+    initLookbook();
     initMaskReveals();
     initFadeReveals();
     initParallax();
     initHeroMouse();
     initProductRows();
-    initLookbook();
     initFilm();
     runLoader(() => {
       heroEntrance();

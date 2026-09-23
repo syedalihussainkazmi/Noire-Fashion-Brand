@@ -108,7 +108,7 @@ section { position: relative; }
 .hero__scrollcue {
   position: absolute;
   right: var(--gutter);
-  bottom: 24px;
+  bottom: 60px;
   z-index: 2;
   display: flex;
   align-items: center;
@@ -134,17 +134,17 @@ section { position: relative; }
   writing-mode: horizontal-tb;
   position: absolute;
   left: 50%;
-  bottom: -22px;
-  width: 7px;
-  height: 7px;
+  bottom: -30px;
+  width: 8px;
+  height: 8px;
   border-right: 1px solid currentColor;
   border-bottom: 1px solid currentColor;
   transform: translateX(-50%) rotate(45deg) translateY(0);
-  animation: scrollArrowBounce 1.6s ease-in-out infinite;
+  animation: scrollArrowBounce 1.8s ease-in-out infinite;
 }
 @keyframes scrollArrowBounce {
-  0%, 100% { transform: translateX(-50%) rotate(45deg) translateY(0); opacity: 0.4; }
-  50% { transform: translateX(-50%) rotate(45deg) translateY(6px); opacity: 1; }
+  0%, 100% { transform: translateX(-50%) rotate(45deg) translateY(0); opacity: 0.35; }
+  50% { transform: translateX(-50%) rotate(45deg) translateY(12px); opacity: 1; }
 }
 
 /* ---------------------------------------------------------------------- */

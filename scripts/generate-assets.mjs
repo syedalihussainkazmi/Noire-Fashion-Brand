@@ -306,11 +306,10 @@ function motionStudySVG({ w = 1920, h = 1080, seed = 31, id = 'film' } = {}) {
 // illustration-only look; just uncomment the calls below.
 
 // Product schematics actually referenced by the site:
-//  - "coat" doubles as the manifesto section's diagram image
-//  - "trousers" and "skirt" have no matching supplied photo yet
+//  - "coat" doubles as the manifesto section's diagram image (all six
+//    products now have real photos — trousers/skirt schematics moved to
+//    the fallback block below)
 save('product-coat.svg', schematicSVG({ type: 'coat', seed: 100, id: 'p0' }));
-save('product-trousers.svg', schematicSVG({ type: 'trousers', seed: 102, id: 'p2' }));
-save('product-skirt.svg', schematicSVG({ type: 'skirt', seed: 105, id: 'p5' }));
 
 // Materials — macro fabric/hardware textures, all six still in use
 const materials = ['wool', 'silk', 'leather', 'metal', 'cotton', 'stitch'];
@@ -324,8 +323,10 @@ save('film-still.svg', motionStudySVG({ w: 1920, h: 1080, seed: 31, id: 'film' }
 save('final-campaign.svg', compositionSVG({ w: 1920, h: 1300, seed: 41, id: 'finalc', tone: 'dark', wide: true, twin: false }));
 save('studio-portrait.svg', compositionSVG({ w: 1100, h: 1400, seed: 51, id: 'studio', tone: 'light', twin: false }));
 save('product-jacket.svg', schematicSVG({ type: 'jacket', seed: 101, id: 'p1' }));
+save('product-trousers.svg', schematicSVG({ type: 'trousers', seed: 102, id: 'p2' }));
 save('product-dress.svg', schematicSVG({ type: 'dress', seed: 103, id: 'p3' }));
 save('product-blazer.svg', schematicSVG({ type: 'blazer', seed: 104, id: 'p4' }));
+save('product-skirt.svg', schematicSVG({ type: 'skirt', seed: 105, id: 'p5' }));
 for (let i = 1; i <= 4; i++) {
   save(`look-0${i}.svg`, compositionSVG({ w: 1920, h: 1080, seed: 200 + i, id: 'look' + i, tone: i % 2 ? 'dark' : 'light', wide: true, twin: i % 2 === 1 }));
 }

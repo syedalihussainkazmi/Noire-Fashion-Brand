@@ -11,17 +11,18 @@ any photo host (Unsplash, Pexels, Wikimedia, Google Images, etc.), so
 photography couldn't be fetched automatically. The site now runs on a
 **hybrid** set of visuals:
 
-- **`assets/images/photos/`** — nine real photographs supplied directly by
+- **`assets/images/photos/`** — eleven real photographs supplied directly by
   the project owner, used for the hero, campaign, film, studio, lookbook,
-  journal, and four of the six products (coat, jacket, dress, blazer).
+  journal, and all six products.
 - **`assets/images/*.svg`** — original, procedurally generated line art
-  (architectural garment schematics + macro fabric textures) for the pieces
-  with no matching photo (trousers, skirt) and the manifesto diagram. This
-  is produced by [`scripts/generate-assets.mjs`](scripts/generate-assets.mjs),
-  a small, seeded, deterministic generator with no external dependencies —
-  the composition/lookbook/journal functions are still in the file and
-  fully working if you ever want to fall back to an illustration-only look
-  (see the commented-out block at the bottom of the script).
+  (an architectural garment schematic for the manifesto diagram + macro
+  fabric textures for the Materials section). This is produced by
+  [`scripts/generate-assets.mjs`](scripts/generate-assets.mjs), a small,
+  seeded, deterministic generator with no external dependencies — the
+  composition/lookbook/journal/product-schematic functions for every
+  product are still in the file and fully working if you ever want to fall
+  back to an illustration-only look (see the commented-out block at the
+  bottom of the script).
 
 **Licensing responsibility:** the photos in `assets/images/photos/` were
 supplied by whoever is running this project, not sourced or verified by the

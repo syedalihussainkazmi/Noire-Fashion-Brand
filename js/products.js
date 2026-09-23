@@ -37,7 +37,7 @@ NOIRE.products = (function () {
       material: 'Wool / Mohair',
       price: 680,
       description: 'A high-rise, straight-leg trouser in a wool-mohair blend with a permanent center crease and clean waistband.',
-      image: 'assets/images/product-trousers.svg',
+      image: 'assets/images/photos/photo-11-cream-trouser.jpg',
       sizes: ['XS', 'S', 'M', 'L', 'XL'],
     },
     {
@@ -70,7 +70,7 @@ NOIRE.products = (function () {
       material: 'Wool Crêpe',
       price: 790,
       description: 'A knife-pleated midi skirt in fluid wool crêpe, engineered to hold its line in motion.',
-      image: 'assets/images/product-skirt.svg',
+      image: 'assets/images/photos/photo-10-pleated-skirt.jpg',
       sizes: ['XS', 'S', 'M', 'L', 'XL'],
     },
   ];

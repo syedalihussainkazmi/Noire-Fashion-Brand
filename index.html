@@ -6,6 +6,15 @@
 <title>NOIRÉ — Form in Motion</title>
 <meta name="description" content="NOIRÉ. Autumn/Winter 2026. Form. Movement. Silence. A contemporary luxury fashion house.">
 <link rel="icon" href="assets/images/favicon.svg" type="image/svg+xml">
+<!-- critical inline styles: paint the correct colors immediately, before
+     style.css (and the Google Fonts @import inside it) finishes loading,
+     so there's no flash of browser-default white/black on first paint. -->
+<style>
+  html { background: #f3e9d7; }
+  body { background: transparent; margin: 0; }
+  .site-nav { position: fixed; top: 0; left: 0; right: 0; height: 92px; color: #f3e9d7; transform: translateY(-100%); }
+  .loader { position: fixed; inset: 0; background: #0c1a15; z-index: 950; }
+</style>
 <link rel="stylesheet" href="css/style.css">
 <script>document.documentElement.classList.replace('no-js','js');</script>
 </head>
@@ -22,7 +31,11 @@
      PRELOADER
      ========================================================================== -->
 <div class="loader" id="loader" aria-hidden="true">
-  <div class="loader__mark font-display"><span>NOIRÉ</span></div>
+  <div class="loader__inner">
+    <div class="loader__mark font-display"><span>NOIRÉ</span></div>
+    <div class="loader__bar"><span class="loader__bar-fill" id="loaderFill"></span></div>
+    <div class="loader__percent" id="loaderPercent">0%</div>
+  </div>
 </div>
 
 <!-- custom cursor -->
@@ -96,11 +109,13 @@
           <span class="mask-line"><span class="split-line__inner">AS ARCHITECTURE.</span></span>
         </h2>
       </div>
-      <div class="manifesto__copy">
-        <p data-reveal>NOIRÉ explores the relationship between silhouette, movement, material, and space. Each garment is drawn before it is cut — a structure, not a decoration.</p>
-      </div>
-      <div class="manifesto__diagram" data-reveal>
-        <img src="assets/images/photos/photo-12-tweed-jacket.jpg" alt="NOIRÉ tweed jacket, architectural drape, studio portrait" loading="lazy">
+      <div class="manifesto__row">
+        <div class="manifesto__copy">
+          <p data-reveal>NOIRÉ explores the relationship between silhouette, movement, material, and space. Each garment is drawn before it is cut — a structure, not a decoration.</p>
+        </div>
+        <div class="manifesto__diagram reveal-media" data-reveal data-speed="1.05">
+          <img src="assets/images/photos/photo-12-tweed-jacket.jpg" alt="NOIRÉ tweed jacket, architectural drape, studio portrait" loading="lazy">
+        </div>
       </div>
     </div>
   </section>
@@ -123,21 +138,23 @@
        04 — EDITORIAL CAMPAIGN
        ====================================================================== -->
   <section class="campaign" id="campaign">
-    <div class="wrap campaign__composition">
-      <div class="campaign__img-a reveal-media" data-speed="0.85">
-        <img src="assets/images/photos/photo-01-autumn-duo.jpg" alt="NOIRÉ Autumn/Winter 2026 campaign — primary composition" loading="lazy">
-      </div>
-      <div class="campaign__img-b reveal-media" data-speed="1.18">
-        <img src="assets/images/photos/photo-06-suit-couple.jpg" alt="NOIRÉ Autumn/Winter 2026 campaign — secondary composition" loading="lazy">
-      </div>
-      <p class="campaign__type" data-speed="1.05">
-        <span class="mask-line"><span class="split-line__inner">SILENCE</span></span>
-        <span class="mask-line"><span class="split-line__inner">HAS A</span></span>
-        <span class="mask-line"><span class="split-line__inner">SHAPE.</span></span>
-      </p>
-      <div class="campaign__caption" data-reveal>
-        <strong>Campaign 01</strong>
-        Photographed in Paris. Autumn/Winter 2026.
+    <div class="wrap">
+      <div class="campaign__collage">
+        <div class="campaign__img-a reveal-media" data-speed="0.9">
+          <img src="assets/images/photos/photo-01-autumn-duo.jpg" alt="NOIRÉ Autumn/Winter 2026 campaign — primary composition" loading="lazy">
+        </div>
+        <p class="campaign__type">
+          <span class="mask-line"><span class="split-line__inner">SILENCE</span></span>
+          <span class="mask-line"><span class="split-line__inner">HAS A</span></span>
+          <span class="mask-line"><span class="split-line__inner">SHAPE.</span></span>
+        </p>
+        <div class="campaign__img-b reveal-media" data-speed="1.1">
+          <img src="assets/images/photos/photo-06-suit-couple.jpg" alt="NOIRÉ Autumn/Winter 2026 campaign — secondary composition" loading="lazy">
+        </div>
+        <div class="campaign__caption" data-reveal>
+          <strong>Campaign 01</strong>
+          Photographed in Paris. Autumn/Winter 2026.
+        </div>
       </div>
     </div>
   </section>
@@ -170,12 +187,12 @@
         <h2 class="section-heading" data-reveal>Material<br>Matters.</h2>
       </div>
       <div class="materials__grid">
-        <div class="material-tile"><img src="assets/images/material-wool.svg" alt="Macro detail of NOIRÉ wool weave" loading="lazy"><span class="material-tile__label"><span>Wool</span><span>Melton, 620gsm</span></span></div>
-        <div class="material-tile"><img src="assets/images/material-silk.svg" alt="Macro detail of NOIRÉ silk charmeuse" loading="lazy"><span class="material-tile__label"><span>Silk</span><span>Charmeuse</span></span></div>
-        <div class="material-tile"><img src="assets/images/material-leather.svg" alt="Macro detail of NOIRÉ leather trim" loading="lazy"><span class="material-tile__label"><span>Leather</span><span>Vegetable-tanned</span></span></div>
-        <div class="material-tile"><img src="assets/images/material-metal.svg" alt="Macro detail of NOIRÉ hardware finish" loading="lazy"><span class="material-tile__label"><span>Hardware</span><span>Brushed nickel</span></span></div>
-        <div class="material-tile"><img src="assets/images/material-cotton.svg" alt="Macro detail of NOIRÉ cotton twill" loading="lazy"><span class="material-tile__label"><span>Cotton</span><span>Structured twill</span></span></div>
-        <div class="material-tile"><img src="assets/images/material-stitch.svg" alt="Macro detail of NOIRÉ hand-finished stitching" loading="lazy"><span class="material-tile__label"><span>Stitch</span><span>Hand-finished seam</span></span></div>
+        <div class="material-tile" data-reveal><img src="assets/images/material-wool.svg" alt="Macro detail of NOIRÉ wool weave" loading="lazy"><span class="material-tile__label"><span>Wool</span><span>Melton, 620gsm</span></span></div>
+        <div class="material-tile" data-reveal><img src="assets/images/material-silk.svg" alt="Macro detail of NOIRÉ silk charmeuse" loading="lazy"><span class="material-tile__label"><span>Silk</span><span>Charmeuse</span></span></div>
+        <div class="material-tile" data-reveal><img src="assets/images/material-leather.svg" alt="Macro detail of NOIRÉ leather trim" loading="lazy"><span class="material-tile__label"><span>Leather</span><span>Vegetable-tanned</span></span></div>
+        <div class="material-tile" data-reveal><img src="assets/images/material-metal.svg" alt="Macro detail of NOIRÉ hardware finish" loading="lazy"><span class="material-tile__label"><span>Hardware</span><span>Brushed nickel</span></span></div>
+        <div class="material-tile" data-reveal><img src="assets/images/material-cotton.svg" alt="Macro detail of NOIRÉ cotton twill" loading="lazy"><span class="material-tile__label"><span>Cotton</span><span>Structured twill</span></span></div>
+        <div class="material-tile" data-reveal><img src="assets/images/material-stitch.svg" alt="Macro detail of NOIRÉ hand-finished stitching" loading="lazy"><span class="material-tile__label"><span>Stitch</span><span>Hand-finished seam</span></span></div>
       </div>
     </div>
   </section>
@@ -186,7 +203,7 @@
   <section class="studio" id="studio">
     <div class="wrap">
       <div class="studio__grid">
-        <div class="studio__image reveal-media">
+        <div class="studio__image reveal-media" data-reveal>
           <img src="assets/images/photos/photo-03-studio-window.jpg" alt="Inside the NOIRÉ studio, Paris — quiet interior at dusk" loading="lazy" data-speed="1.08">
         </div>
         <div>
@@ -260,25 +277,25 @@
         <h2 class="section-heading" data-reveal>Noiré<br>Journal</h2>
       </div>
       <div class="journal__grid">
-        <a class="journal-card" href="#" data-cursor="view">
+        <a class="journal-card" href="#" data-cursor="view" data-reveal>
           <div class="journal-card__media"><img src="assets/images/photos/photo-05-striped-portrait.jpg" alt="The Art of Silhouette" loading="lazy"></div>
           <span class="journal-card__num">01</span>
           <h3 class="journal-card__title">The Art of Silhouette</h3>
           <div class="journal-card__foot"><span>Design</span><span>Sep 2026</span></div>
         </a>
-        <a class="journal-card" href="#" data-cursor="view">
+        <a class="journal-card" href="#" data-cursor="view" data-reveal>
           <div class="journal-card__media"><img src="assets/images/photos/photo-04-film-crew.jpg" alt="Inside the Studio" loading="lazy"></div>
           <span class="journal-card__num">02</span>
           <h3 class="journal-card__title">Inside the Studio</h3>
           <div class="journal-card__foot"><span>Process</span><span>Aug 2026</span></div>
         </a>
-        <a class="journal-card" href="#" data-cursor="view">
+        <a class="journal-card" href="#" data-cursor="view" data-reveal>
           <div class="journal-card__media"><img src="assets/images/photos/photo-01-autumn-duo.jpg" alt="Material / Form" loading="lazy"></div>
           <span class="journal-card__num">03</span>
           <h3 class="journal-card__title">Material / Form</h3>
           <div class="journal-card__foot"><span>Craft</span><span>Jul 2026</span></div>
         </a>
-        <a class="journal-card" href="#" data-cursor="view">
+        <a class="journal-card" href="#" data-cursor="view" data-reveal>
           <div class="journal-card__media"><img src="assets/images/photos/photo-02-night-portrait.jpg" alt="The City After Dark" loading="lazy"></div>
           <span class="journal-card__num">04</span>
           <h3 class="journal-card__title">The City After Dark</h3>
@@ -321,7 +338,7 @@
         <span class="font-display">NOIRÉ</span>
         <p>A contemporary luxury fashion house. Paris, 2026.</p>
       </div>
-      <div class="footer-col">
+      <div class="footer-col" data-reveal>
         <h4>Shop</h4>
         <ul>
           <li><a href="#collection">Collection</a></li>
@@ -329,7 +346,7 @@
           <li><a href="#lookbook">Lookbook</a></li>
         </ul>
       </div>
-      <div class="footer-col">
+      <div class="footer-col" data-reveal>
         <h4>House</h4>
         <ul>
           <li><a href="#studio">Studio</a></li>
@@ -337,7 +354,7 @@
           <li><a href="#campaign">Campaign</a></li>
         </ul>
       </div>
-      <div class="footer-col">
+      <div class="footer-col" data-reveal>
         <h4>Contact</h4>
         <ul>
           <li><a href="mailto:atelier@noire-paris.com">atelier@noire-paris.com</a></li>
@@ -345,7 +362,7 @@
           <li><a href="#" data-cursor="link">Pinterest</a></li>
         </ul>
       </div>
-      <div class="footer-col">
+      <div class="footer-col" data-reveal>
         <h4>Newsletter</h4>
         <form class="newsletter-form" id="newsletterForm" novalidate>
           <label for="newsletterEmail" class="visually-hidden">Email address</label>

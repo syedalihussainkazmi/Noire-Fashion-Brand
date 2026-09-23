@@ -82,7 +82,7 @@ NOIRE.products = (function () {
   function renderCollectionRows(container) {
     if (!container) return;
     container.innerHTML = DATA.map((p) => `
-      <div class="product-row" data-product-id="${p.id}">
+      <div class="product-row" data-product-id="${p.id}" data-reveal>
         <button class="product-row__btn" data-open-product="${p.id}" aria-label="View ${p.name}"></button>
         <span class="product-row__index font-display">${p.index}</span>
         <h3 class="product-row__name" data-cursor="view">${p.name}</h3>
@@ -101,7 +101,7 @@ NOIRE.products = (function () {
   function renderStorefrontRail(container) {
     if (!container) return;
     container.innerHTML = DATA.map((p) => `
-      <a href="#" class="store-card" data-open-product="${p.id}" data-cursor="view">
+      <a href="#" class="store-card" data-open-product="${p.id}" data-cursor="view" data-reveal>
         <div class="store-card__media">
           <span class="store-card__tag">${p.category}</span>
           <img src="${p.image}" alt="${p.name}" loading="lazy">

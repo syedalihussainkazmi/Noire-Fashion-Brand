@@ -15,7 +15,6 @@ html.no-js .split-line__inner { opacity: 1 !important; transform: none !importan
 
 body {
   margin: 0;
-  min-width: 1180px;
   background: transparent; /* the fixed .ambient-bg layer paints the base color */
   color: var(--c-fg);
   font-family: var(--f-sans);
@@ -128,7 +127,7 @@ button:focus-visible, a:focus-visible { outline-offset: 3px; }
 /* -- generic reveal (fallback / non-GSAP) -------------------------------- */
 [data-reveal] {
   opacity: 0;
-  transform: translateY(28px);
+  transform: translateY(48px);
 }
 
 /* -- reduced motion -------------------------------------------------------*/

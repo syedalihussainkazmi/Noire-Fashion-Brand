@@ -10,6 +10,7 @@
   background: var(--c-emerald-black);
   display: flex; align-items: center; justify-content: center;
 }
+.loader__inner { display: flex; flex-direction: column; align-items: center; gap: 22px; }
 .loader__mark {
   font-family: var(--f-display);
   font-size: clamp(2.2rem, 5vw, 3.6rem);
@@ -19,6 +20,12 @@
   overflow: hidden;
 }
 .loader__mark span { display: inline-block; }
+.loader__bar { width: 180px; height: 1px; background: rgba(243,233,215,0.2); overflow: hidden; }
+.loader__bar-fill { display: block; width: 0%; height: 100%; background: var(--c-gold-bright); }
+.loader__percent {
+  font-family: var(--f-sans); font-size: var(--fs-xs); letter-spacing: var(--ls-label);
+  color: var(--c-taupe-soft);
+}
 
 /* ---------------------------------------------------------------------- */
 /* CUSTOM CURSOR                                                           */
@@ -28,12 +35,19 @@
   width: 8px; height: 8px;
   border-radius: 50%;
   background: var(--c-off-white);
+  box-shadow: 0 0 0 1px rgba(20,41,34,0.4);
   pointer-events: none;
   z-index: var(--z-cursor);
   transform: translate(-50%, -50%);
   will-change: transform;
-  mix-blend-mode: difference;
+  opacity: 1;
+  transition: width 0.25s var(--ease-soft), height 0.25s var(--ease-soft),
+              background-color 0.25s var(--ease-soft), opacity 0.2s var(--ease-soft);
 }
+/* deliberately no mix-blend-mode: against real photography (rather than
+   the flat dark backgrounds this was first designed against) `difference`
+   inverted arbitrary photo hues into stray magenta/pink blobs. A fixed,
+   explicit color reads reliably over any image. */
 .cursor__label {
   position: absolute; top: 50%; left: 50%;
   transform: translate(-50%, -50%);
@@ -43,13 +57,14 @@
   white-space: nowrap;
   opacity: 0;
   color: var(--c-black);
+  transition: opacity 0.2s var(--ease-soft);
 }
 .cursor.is-view { width: 76px; height: 76px; background: var(--c-off-white); }
 .cursor.is-view .cursor__label { opacity: 1; color: var(--c-black); }
 .cursor.is-link { width: 44px; height: 44px; background: rgba(243,233,215,0.9); }
 .cursor.is-enter { width: 92px; height: 92px; background: var(--c-off-white); }
 .cursor.is-enter .cursor__label { opacity: 1; color: var(--c-black); }
-.cursor.is-hidden { opacity: 0; }
+.cursor.is-hidden { opacity: 0 !important; }
 .cursor.is-drag { width: 60px; height: 60px; background: rgba(243,233,215,0.9); }
 
 @media (hover: none) {
@@ -116,8 +131,18 @@
 .site-nav__links a:hover::after { right: 0; }
 
 .site-nav__actions { display: flex; align-items: center; gap: 28px; justify-content: flex-end; }
-.site-nav__shop { font-size: var(--fs-xs); letter-spacing: var(--ls-label); text-transform: uppercase; }
-.site-nav__bag { display: flex; align-items: center; gap: 8px; font-size: var(--fs-xs); letter-spacing: var(--ls-label); text-transform: uppercase; }
+.site-nav__shop {
+  font-size: var(--fs-xs); letter-spacing: var(--ls-label); text-transform: uppercase;
+  transition: color var(--dur-fast) var(--ease-soft);
+}
+.site-nav__shop:hover { color: var(--c-gold-bright); }
+.site-nav__bag {
+  display: flex; align-items: center; gap: 8px; font-size: var(--fs-xs); letter-spacing: var(--ls-label); text-transform: uppercase;
+  transition: color var(--dur-fast) var(--ease-soft);
+}
+.site-nav__bag:hover { color: var(--c-gold-bright); }
+.site-nav__bag:hover .site-nav__bag-count { border-color: var(--c-gold-bright); }
+.site-nav__bag-count { transition: border-color var(--dur-fast) var(--ease-soft); }
 .site-nav__bag-count {
   display: inline-flex; align-items: center; justify-content: center;
   width: 17px; height: 17px; border-radius: 50%;

@@ -9,7 +9,10 @@
    animation-system boot, not here — a CSS-authored percentage transform
    gets baked into a fixed-px matrix by the time GSAP reads it, which then
    desyncs from the yPercent tween that's meant to animate it back to 0. */
-.split-line__inner { display: block; white-space: nowrap; will-change: transform; }
+.split-line__inner {
+  display: block; white-space: nowrap; will-change: transform;
+  backface-visibility: hidden; -webkit-backface-visibility: hidden;
+}
 
 .char-stagger span { display: inline-block; will-change: transform, opacity; }
 

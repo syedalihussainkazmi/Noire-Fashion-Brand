@@ -284,13 +284,32 @@ NOIRE.anim = (function () {
     const garments = ['Noiré Coat — Wool / Silk', 'Structured Jacket — Wool Gabardine', 'Slip Dress — Silk Charmeuse', 'Double-Breasted Blazer — Wool / Cashmere'];
     let idx = 0;
 
+    function setText(newIdx) {
+      const texts = [label, garment];
+      gsap.to(texts, {
+        autoAlpha: 0, y: 8, duration: 0.22, ease: 'power2.out', overwrite: 'auto',
+        onComplete: () => {
+          label.textContent = `Look ${String(newIdx + 1).padStart(2, '0')} / ${String(total).padStart(2, '0')}`;
+          garment.textContent = garments[newIdx];
+          current.textContent = String(newIdx + 1).padStart(2, '0');
+          gsap.fromTo(texts, { autoAlpha: 0, y: 8 }, { autoAlpha: 1, y: 0, duration: 0.36, ease: 'power2.out', overwrite: 'auto' });
+        },
+      });
+    }
+
     function go(next) {
-      idx = (next + total) % total;
+      const newIdx = (next + total) % total;
+      if (newIdx === idx) return;
+      idx = newIdx;
       slides.forEach((s, i) => s.classList.toggle('is-active', i === idx));
       indexBtns.forEach((b, i) => b.classList.toggle('is-active', i === idx));
-      label.textContent = `Look ${String(idx + 1).padStart(2, '0')} / ${String(total).padStart(2, '0')}`;
-      garment.textContent = garments[idx];
-      current.textContent = String(idx + 1).padStart(2, '0');
+      if (reduced) {
+        label.textContent = `Look ${String(idx + 1).padStart(2, '0')} / ${String(total).padStart(2, '0')}`;
+        garment.textContent = garments[idx];
+        current.textContent = String(idx + 1).padStart(2, '0');
+      } else {
+        setText(idx);
+      }
     }
 
     qs('#lookbookNext').addEventListener('click', () => go(idx + 1));
@@ -301,15 +320,21 @@ NOIRE.anim = (function () {
       if (e.key === 'ArrowLeft') go(idx - 1);
     });
 
-    // pinned moment: the stage holds its position through a scroll dwell,
-    // giving the visitor room to click through looks without the page racing on.
+    // pinned scroll-through: the stage holds its position while the visitor
+    // scrolls, and scroll progress itself drives which look is showing —
+    // look 01 through 04 in order — then releases into normal scrolling
+    // once the dwell is spent.
     if (!reduced) {
       ScrollTrigger.create({
         trigger: stage,
         start: 'top top+=92',
-        end: '+=120%',
+        end: '+=' + total * 90 + '%',
         pin: true,
         pinSpacing: true,
+        onUpdate: (self) => {
+          const step = Math.min(total - 1, Math.floor(self.progress * total));
+          go(step);
+        },
       });
     }
   }

@@ -100,8 +100,9 @@ section { position: relative; }
   letter-spacing: var(--ls-label);
   text-transform: uppercase;
   white-space: nowrap;
+  transition: color var(--dur-fast) var(--ease-soft);
 }
-.hero__cta .cta-line { width: 40px; height: 1px; background: currentColor; transition: width var(--dur-fast) var(--ease-soft); }
+.hero__cta .cta-line { width: 40px; height: 1px; background: currentColor; transition: width var(--dur-fast) var(--ease-soft), background var(--dur-fast) var(--ease-soft); }
 .hero__cta:hover .cta-line { width: 62px; background: var(--local-accent); }
 .hero__cta:hover { color: var(--local-accent); }
 

@@ -130,15 +130,4 @@ button:focus-visible, a:focus-visible { outline-offset: 3px; }
   transform: translateY(48px);
 }
 
-/* -- reduced motion -------------------------------------------------------*/
-@media (prefers-reduced-motion: reduce) {
-  *, *::before, *::after {
-    animation-duration: 0.001ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.001ms !important;
-    scroll-behavior: auto !important;
-  }
-  [data-reveal] { opacity: 1 !important; transform: none !important; }
-}
-
 ::selection { background: var(--c-emerald); color: var(--c-champagne); }

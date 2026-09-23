@@ -220,7 +220,7 @@
 .cart-item__qty { display: flex; align-items: center; gap: 12px; border: 1px solid rgba(243,233,215,0.25); padding: 4px 10px; }
 .cart-item__qty button { width: 18px; font-size: 0.85rem; }
 .cart-item__price { font-family: var(--f-display); font-size: 0.95rem; }
-.cart-item__remove { margin-top: 14px; font-size: var(--fs-xs); letter-spacing: 0.06em; color: var(--c-warm-gray); text-decoration: underline; text-underline-offset: 3px; }
+.cart-item__remove { margin-top: 14px; font-size: var(--fs-xs); letter-spacing: 0.06em; color: var(--c-warm-gray); text-decoration: underline; text-underline-offset: 3px; transition: color var(--dur-fast) var(--ease-soft); }
 .cart-item__remove:hover { color: var(--c-off-white); }
 
 .cart-drawer__foot { padding: 26px var(--gutter) 34px; border-top: 1px solid rgba(243,233,215,0.1); }

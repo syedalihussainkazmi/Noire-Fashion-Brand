@@ -25,7 +25,11 @@ NOIRE.utils = (function () {
   }
 
   function prefersReducedMotion() {
-    return window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    // The animated preloader, entrance sequence, scroll reveals and hover
+    // transitions are the brand experience itself, not a decorative extra —
+    // deliberately always animate rather than deferring to the OS-level
+    // reduce-motion flag.
+    return false;
   }
 
   function trapFocus(container) {

@@ -17,13 +17,15 @@
    inset from the track via a transparent border + background-clip so it
    floats as a soft pill instead of a flush block. html (not body) is the
    actual scrolling box here, since base.css never gives body its own
-   overflow. */
+   overflow. The track is a dedicated dark green (--c-emerald-track) so
+   it reads as part of the brand over both light and dark sections,
+   instead of a transparent gap that shows the pale champagne through it. */
 html {
   scrollbar-width: thin;
-  scrollbar-color: var(--c-gold) transparent;
+  scrollbar-color: var(--c-gold) var(--c-emerald-track);
 }
 html::-webkit-scrollbar { width: 10px; }
-html::-webkit-scrollbar-track { background: transparent; }
+html::-webkit-scrollbar-track { background: var(--c-emerald-track); }
 html::-webkit-scrollbar-thumb {
   background-color: var(--c-gold);
   background-clip: content-box;

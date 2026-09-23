@@ -70,7 +70,9 @@ section { position: relative; }
 .hero__bottom {
   position: relative;
   z-index: 2;
-  padding: 0 var(--gutter) 64px;
+  /* extra right clearance so the CTA's underline never crosses the
+     scroll cue, which is anchored at the same right edge lower down */
+  padding: 0 calc(var(--gutter) + 56px) 64px var(--gutter);
   display: grid;
   grid-template-columns: 1fr auto;
   align-items: end;
@@ -122,6 +124,26 @@ section { position: relative; }
 }
 @keyframes scrollcue { 0% { transform: translateY(-100%); } 50% { transform: translateY(0); } 100% { transform: translateY(100%); } }
 
+/* small bouncing chevron under the cue — a clearer, unmissable "scroll"
+   signal than the thin line pulse alone. writing-mode reset to horizontal
+   so the chevron itself doesn't inherit the text's vertical rotation. */
+.hero__scrollcue-arrow {
+  writing-mode: horizontal-tb;
+  position: absolute;
+  left: 50%;
+  bottom: -22px;
+  width: 7px;
+  height: 7px;
+  border-right: 1px solid currentColor;
+  border-bottom: 1px solid currentColor;
+  transform: translateX(-50%) rotate(45deg) translateY(0);
+  animation: scrollArrowBounce 1.6s ease-in-out infinite;
+}
+@keyframes scrollArrowBounce {
+  0%, 100% { transform: translateX(-50%) rotate(45deg) translateY(0); opacity: 0.4; }
+  50% { transform: translateX(-50%) rotate(45deg) translateY(6px); opacity: 1; }
+}
+
 /* ---------------------------------------------------------------------- */
 /* 02 — MANIFESTO                                                          */
 /* ---------------------------------------------------------------------- */
@@ -162,7 +184,7 @@ section { position: relative; }
   display: flex;
   justify-content: center;
 }
-.manifesto__diagram img { width: min(420px, 60%); opacity: 0.82; mix-blend-mode: multiply; }
+.manifesto__diagram img { width: min(420px, 60%); box-shadow: 0 40px 90px rgba(20,41,34,0.2); }
 
 /* ---------------------------------------------------------------------- */
 /* 03 — COLLECTION (editorial product list)                                */

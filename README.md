@@ -11,12 +11,12 @@ any photo host (Unsplash, Pexels, Wikimedia, Google Images, etc.), so
 photography couldn't be fetched automatically. The site now runs on a
 **hybrid** set of visuals:
 
-- **`assets/images/photos/`** — eleven real photographs supplied directly by
-  the project owner, used for the hero, campaign, film, studio, lookbook,
-  journal, and all six products.
+- **`assets/images/photos/`** — twelve real photographs supplied directly by
+  the project owner, used for the hero, campaign, film, studio, manifesto
+  diagram, lookbook, journal, and all six products.
 - **`assets/images/*.svg`** — original, procedurally generated line art
-  (an architectural garment schematic for the manifesto diagram + macro
-  fabric textures for the Materials section). This is produced by
+  (macro fabric textures for the Materials section only — every other slot
+  now uses a real photo). This is produced by
   [`scripts/generate-assets.mjs`](scripts/generate-assets.mjs), a small,
   seeded, deterministic generator with no external dependencies — the
   composition/lookbook/journal/product-schematic functions for every

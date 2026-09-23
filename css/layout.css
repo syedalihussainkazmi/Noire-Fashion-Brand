@@ -128,27 +128,32 @@ section { position: relative; }
 }
 @keyframes scrollcue { 0% { transform: translateY(-100%); } 50% { transform: translateY(0); } 100% { transform: translateY(100%); } }
 
-/* small bouncing chevron under the cue — a clearer, unmissable "scroll"
-   signal than the thin line pulse alone. writing-mode reset to horizontal
-   so the chevron itself doesn't inherit the text's vertical rotation. */
+/* small chevron under the cue that falls straight down and fades, then
+   resets to the top and repeats — a clearer, unmissable "scroll" signal
+   than the thin line pulse alone. writing-mode reset to horizontal so the
+   chevron itself doesn't inherit the text's vertical rotation.
+   translateY must come BEFORE rotate() in the transform list: transform
+   functions compose right-to-left, so putting rotate() first would make
+   translateY move along the rotated axis instead of straight down the
+   screen — that's what was causing the diagonal drift. */
 .hero__scrollcue-arrow {
   writing-mode: horizontal-tb;
   position: absolute;
   left: 50%;
-  bottom: -34px;
+  bottom: -20px;
   width: 11px;
   height: 11px;
   border-right: 1.5px solid currentColor;
   border-bottom: 1.5px solid currentColor;
-  transform: translateX(-50%) rotate(45deg) translateY(0);
-  animation: scrollArrowBounce 1.4s ease-in-out infinite;
+  transform: translateX(-50%) translateY(0) rotate(45deg);
+  animation: scrollArrowFall 1.6s linear infinite;
   will-change: transform, opacity;
 }
-@keyframes scrollArrowBounce {
-  0% { transform: translateX(-50%) rotate(45deg) translateY(0); opacity: 0.4; }
-  35% { transform: translateX(-50%) rotate(45deg) translateY(16px); opacity: 1; }
-  65% { transform: translateX(-50%) rotate(45deg) translateY(16px); opacity: 1; }
-  100% { transform: translateX(-50%) rotate(45deg) translateY(0); opacity: 0.4; }
+@keyframes scrollArrowFall {
+  0% { transform: translateX(-50%) translateY(0) rotate(45deg); opacity: 0; }
+  20% { opacity: 1; }
+  75% { opacity: 1; }
+  100% { transform: translateX(-50%) translateY(24px) rotate(45deg); opacity: 0; }
 }
 
 /* ---------------------------------------------------------------------- */
